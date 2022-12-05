@@ -134,6 +134,4 @@ class GetSecondLayer():
     #     return pd.DataFrame.to_csv(self.embedding_df, self.file_path) 
     
 
-if __name__ == '__main__':
-    pass
     

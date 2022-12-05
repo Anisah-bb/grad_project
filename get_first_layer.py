@@ -95,5 +95,3 @@ class GetFirstLayer():
         return pd.DataFrame.to_csv(self.final_df, self.file_path)
         
 
-if __name__ == '__main__':
-    pass
