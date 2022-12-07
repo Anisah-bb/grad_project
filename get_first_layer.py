@@ -4,7 +4,7 @@ import pandas as pd
 
 class GetFirstLayer(): 
     
-    def __init__(self, api_key, target_concept_prefix, download_path, *concept_id):
+    def __init__(self, api_key, concept_prefix,  *concept_id, download_path ):
         '''function to set up connection to the API and to
         catch the concept_id of interest
         '''
@@ -18,7 +18,7 @@ class GetFirstLayer():
         self.concept_id = ",".join([*concept_id])
         self.payload, self.relations = self.get_relations()
         self.annotation = self.annotate()
-        self.target_prefix = str(target_concept_prefix)
+        self.target_prefix = str(concept_prefix)
         self.df = self.json_todf()
         self.final_df = self.modify_df()
         self.file_path = download_path

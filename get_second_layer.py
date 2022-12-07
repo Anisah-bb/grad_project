@@ -1,14 +1,13 @@
 import pandas as pd
-# from run import model_data_path
 import requests
 import pandas as pd
 
-model_data_path = '/homes/fabadmus/Internship/labeled_file2'
+#model_data_path = '/homes/fabadmus/Internship/labeled_file2'
 class GetSecondLayer():
     '''class to get second layer relations of 
     positive and negative concepts 
     '''
-    def __init__(self, apikey, pos_df_path, neg_df_path, download_path):
+    def __init__(self, apikey, pos_df_path, neg_df_path, model_data_path, download_path):
         self.session = requests.Session()
         self.search_url = "relations"
         self.base_url = 'https://apimlqv2.tenwiseservice.nl/api/mlquery/'
@@ -17,6 +16,7 @@ class GetSecondLayer():
         self.payload = {'apikey': apikey, 'csrfmiddlewaretoken': self.session.cookies.get_dict()['csrftoken']}
         self.pos_df = pd.read_csv(pos_df_path)
         self.neg_df = pd.read_csv(neg_df_path)
+        self.model_data_path = model_data_path 
         self.file_path = download_path
         self.full_df = self.join_files()
         self.set_of_concepts = self.get_concept_set()
@@ -46,32 +46,30 @@ class GetSecondLayer():
         return self.set_of_concepts
     
     def save_model_df(self):
-        ''' funtion to save the dataframe for modelling
+        ''' funtion to save the first layer dataframe for modelling
         '''
         # remove overlaps
         self.full_df.drop_duplicates('object', keep=False, inplace=True)
-        pd.DataFrame.to_csv(self.full_df, model_data_path)
+        pd.DataFrame.to_csv(self.full_df, self.model_data_path)
 
     def get_secondlayer_relation(self):
         ''' function to get the second layer relations 
         '''
+        # get all the metabolites related to first layer metabolites
         self.payload['concept_ids_subject'] = ",".join(self.set_of_concepts)
-        # self.payload['concept_ids_object'] = ",".join(self.set_of_concepts)
         self.payload['vocab_ids'] = "ONT1006"
         results = self.session.post(f"{self.base_url}conceptset/{self.search_url}/", self.payload)
         rv = results.json()
         second_relations_edges = rv['result'][f'{self.search_url}']
         self.second_relations_df = pd.DataFrame(second_relations_edges)
         
-        
+        # get the intra relations of matbolites
         self.set_of_concepts2 = set(self.second_relations_df['object'].unique())
         self.payload['concept_ids_subject'] = ",".join(self.set_of_concepts2)
         # self.payload['concept_ids_object'] = ",".join(self.set_of_concepts)
         self.payload['vocab_ids'] = "ONT1006"
-      
         results = self.session.post(f"{self.base_url}conceptset/{self.search_url}/", self.payload)
         rv = results.json()
-        # print(rv)
         second_relations_edges2 = rv['result'][f'{self.search_url}']
         self.second_relations_df2 = pd.DataFrame(second_relations_edges2)
         # pd.DataFrame.to_csv(self.second_relations_df2, '/homes/fabadmus/Internship/test_file')
@@ -104,6 +102,8 @@ class GetSecondLayer():
         ''' function to save the second layer relations. 
         '''
         return pd.DataFrame.to_csv(self.final_df, self.file_path)
+    
+    
     # def clean_intra_df(self):
     #     ''' function to clean the intra_df and drop uneccessary columns 
     #     '''
