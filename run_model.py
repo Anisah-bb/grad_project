@@ -10,18 +10,27 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from gensim.models import Word2Vec
-import requests
+
 
 class TrainModel():
-    def __init__(self, second_layer, emdedding_file, model_file) :
+    def __init__(self, apikey, second_layer, emdedding_file, model_file, out_file) :
+        self.apikey = apikey
+        self.session = requests.Session()
+        self.base_url = 'https://apimlqv2.tenwiseservice.nl/api/mlquery/'
+        self.session.headers['referer'] = 'https://apimlqv2.tenwiseservice.nl/'
+        self.session.get(f"{self.base_url}start/")
+        self.payload = {'apikey': self.apikey,  # contact KMAP for API
+            'csrfmiddlewaretoken': self.session.cookies.get_dict()['csrftoken']}
         self.second_layer = second_layer
         self.emdedding_file = emdedding_file
+        self.prediction_path = out_file
         self.model_file = model_file
         self.emb_df = self.load_files()
         self.emb_df_pos, self.emb_df_neg =  self.extract_embedding_sets()
         self.model_df = self.get_modeldf()
         self.validation_df = self.get_validationdf()
         self.model = self.train_model()
+        self.predictions = self.make_predictions()
    
     def load_files(self):
         second_layer = pd.read_csv(self.second_layer)
@@ -46,8 +55,10 @@ class TrainModel():
         # create separate dataframes of embeddings bases on the sets
         emb_df_pos = self.emb_df[self.emb_df.index.isin(pos)]
         emb_df_pos['set'] = 'POS'
+        print(len(emb_df_pos))
         emb_df_neg = self.emb_df[self.emb_df.index.isin(neg)]
         emb_df_neg['set'] = 'NEG'
+        print(len(emb_df_neg))
         return emb_df_pos, emb_df_neg
         
     def get_modeldf(self):
@@ -56,8 +67,9 @@ class TrainModel():
         return model_df
     def get_validationdf(self):
         # set the unkown rows as a validation dataframe
-        validation_df = pd.concat([ self.emb_df, self.emb_df_pos, self.emb_df_neg]).drop_duplicates(
-                subset=self.emb_df.columns[:-1], keep='first')
+        validation_df = pd.concat([self.emb_df_pos, self.emb_df_neg, self.emb_df]).drop_duplicates(
+                subset=self.emb_df.columns[:-1], keep=False)
+        
         return validation_df
     def train_model(self):
         #prepare data for modelling
@@ -70,15 +82,17 @@ class TrainModel():
         #train model
         param_grid = {'min_samples_leaf':[3,5,7,10,15],'max_features':[0.5,'sqrt','log2'],
                 'max_depth':[10,15,20],
-                'class_weight':[{"POS":1,"NEG":1},{"POS":1,"NEG":2},{"POS":5,"NEG":1},'balanced'],
+                'class_weight':[{"POS":1,"NEG":1},'balanced'],
                 'criterion':['entropy','gini']}
 
-        model = GridSearchCV(RandomForestClassifier(),param_grid, verbose=1,n_jobs=-1,scoring='roc_auc')
-        model.fit(X_train,y_train)
-        pred = model.predict(X_test)
+        # model = RandomForestClassifier(random_state=42, class_weight='balanced', criterion='entropy',
+        #               max_depth=20, max_features=0.5, min_samples_leaf=3)
+        model1 = GridSearchCV(RandomForestClassifier(),param_grid, verbose=1,n_jobs=-1,scoring='roc_auc')
+        model1.fit(X_train,y_train)
+        pred = model1.predict(X_test)
         print(classification_report(y_test, pred))
-        print ('\n',model.best_estimator_)
-        return model
+        print ('\n',model1.best_estimator_)
+        return model1
         
 
     def make_predictions(self):
@@ -94,19 +108,10 @@ class TrainModel():
         val_proba_df = val_proba_df.sort_values('POS_prob', ascending=False)
         val_proba_df
 
-
-        session = requests.Session()
-        base_url = 'https://apimlqv2.tenwiseservice.nl/api/mlquery/'
-        session.headers['referer'] = 'https://apimlqv2.tenwiseservice.nl'
-        session.get(f"{base_url}start/")
-
-        payload = {'apikey': '',
-                'csrfmiddlewaretoken': session.cookies.get_dict()['csrftoken']}
-
         # annotate predictions
         ids = list(val_proba_df.index)
-        payload['concept_ids'] = ",".join(ids)
-        results = session.post(f"{base_url}conceptset/annotation/", payload)
+        self.payload['concept_ids'] = ",".join(ids)
+        results = self.session.post(f"{self.base_url}conceptset/annotation/", self.payload)
         js = results.json()
         annotation = js['result']['annotation']
         # get ids
@@ -116,8 +121,13 @@ class TrainModel():
         # add ids to the dataframe
         val_proba_df['annotation'] = annotated_ids
         val_proba_df.head(10)
+        pd.DataFrame.to_csv(val_proba_df, self.prediction_path)
         return val_proba_df
         
-
-
-
+def main():
+    train = TrainModel('Hanze_group_2022', '/homes/fabadmus/Internship/RA/second_layer', '/homes/fabadmus/Internship/RA/embedding', '/homes/fabadmus/Internship/RA/model_data_path', '/homes/fabadmus/Internship/RA/results')
+    predictions = train.make_predictions()
+    print(predictions.head(20))
+    
+if __name__ == '__main__':
+    main()

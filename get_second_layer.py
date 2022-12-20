@@ -1,13 +1,13 @@
 import pandas as pd
 import requests
-import pandas as pd
+
 
 #model_data_path = '/homes/fabadmus/Internship/labeled_file2'
 class GetSecondLayer():
     '''class to get second layer relations of 
     positive and negative concepts 
     '''
-    def __init__(self, apikey, pos_df_path, neg_df_path, model_data_path, download_path):
+    def __init__(self, apikey, pos_df_path, neg_df_path, model_data_path, download_path, top_n):
         self.session = requests.Session()
         self.search_url = "relations"
         self.base_url = 'https://apimlqv2.tenwiseservice.nl/api/mlquery/'
@@ -16,6 +16,7 @@ class GetSecondLayer():
         self.payload = {'apikey': apikey, 'csrfmiddlewaretoken': self.session.cookies.get_dict()['csrftoken']}
         self.pos_df = pd.read_csv(pos_df_path)
         self.neg_df = pd.read_csv(neg_df_path)
+        self.top_n = top_n
         self.model_data_path = model_data_path 
         self.file_path = download_path
         self.full_df = self.join_files()
@@ -34,16 +35,16 @@ class GetSecondLayer():
        '''
         self.pos_df['label'] = 'POS'
         self.neg_df['label'] = 'NEG'
-        self.full_df = pd.concat([self.pos_df, self.neg_df], ignore_index=True)
-        self.full_df = self.full_df[['subject', 'object', 'local_mi', 'label']]
-        return self.full_df
+        full_df = pd.concat([self.pos_df, self.neg_df], ignore_index=True)
+        full_df = full_df[['subject', 'object', 'local_mi', 'label']]
+        return full_df
     
         
     def get_concept_set(self):
         ''' funtion to get the set of concepts in the first layer
         '''
-        self.set_of_concepts = set(self.full_df['object'].unique())
-        return self.set_of_concepts
+        set_of_concepts = set(self.full_df['object'].unique())
+        return set_of_concepts
     
     def save_model_df(self):
         ''' funtion to save the first layer dataframe for modelling
@@ -80,17 +81,20 @@ class GetSecondLayer():
         '''function to clean the data and sort according to the
         local_mi.
         '''
-        self.df = self.second_relations_df2[['subject', 'object', 'score', 'overlap','local_mi']]
-        self.df = self.df[self.df['score'] >= 1]
-        self.df = self.df[self.df['overlap'] >= 100].reset_index(drop=True)
+        df = self.second_relations_df2[['subject', 'object', 'score', 'overlap','local_mi']]
+        # self.df = self.df[self.df['score'] >= 1]
+        # self.df = self.df[self.df['overlap'] >= 100].reset_index(drop=True)
         # self.df = self.df.drop(columns = ['score', 'overlap'])
-        self.df.sort_values('local_mi', ascending=False, inplace=True)
+        #df.sort_values('local_mi', ascending=False, inplace=True)
         # filter out self loops
-        self.df = self.df[self.df['subject'] != self.df['object']]
+        df = df[df['subject'] != df['object']]
         # remove duplicates since relations always goes both ways
-        self.df = self.df.iloc[::2]
+        # self.df = self.df.iloc[::2]
         # get relations with the highest local_mi
-        self.df = self.df.groupby(['subject'])[['object', 'local_mi']].max().reset_index()
+        # self.df = self.df.groupby(['subject'])[['object', 'local_mi']].max().reset_index()
+        df = df.groupby(['subject']).apply(lambda x: x.sort_values(['local_mi'], ascending = False)[:self.top_n])
+        df = df[['subject', 'object', 'local_mi']]
+        self.df = df.set_index('subject').reset_index()
         return self.df
     
     def combine_dfs(self):
