@@ -1,10 +1,16 @@
+'''
+usage
+get_first_layer.py -a Hanze_group_2022 -p TWMET -t TWDIS_11098 -c TWDIS_09536  -n 50  -d /homes/fabadmus/Internship/RAtest
+'''
 # import libraries
+import os
 import requests
 import pandas as pd
+import argparse as ap
 
 class GetFirstLayer(): 
     
-    def __init__(self, api_key, concept_prefix,  *concept_id, download_path ):
+    def __init__(self, api_key, concept_prefix,  *concept_id, top_n, download_path ):
         '''function to set up connection to the API and to
         catch the concept_id of interest
         '''
@@ -20,6 +26,7 @@ class GetFirstLayer():
         self.annotation = self.annotate()
         self.target_prefix = str(concept_prefix)
         self.df = self.json_todf()
+        self.top_n = top_n
         self.final_df = self.modify_df()
         self.file_path = download_path
         
@@ -67,7 +74,7 @@ class GetFirstLayer():
         self.df = pd.json_normalize(self.relations)
         self.df = self.df[['subject', 'object', 'score', 'overlap', 'local_mi']]
         self.df = self.df[self.df['score'] >= 1]
-        self.df = self.df[self.df['overlap'] >= 100].reset_index(drop=True)
+        # self.df = self.df[self.df['overlap'] >= 100].reset_index(drop=True)
         return self.df
 
 
@@ -89,9 +96,41 @@ class GetFirstLayer():
         self.df.reset_index(drop=True, inplace=True)
         # prefix_objects = ('TWMET', 'TWFOOD')
         self.final_df = self.df[self.df['object'].str.startswith(self.target_prefix)].reset_index(drop=True)
-        return self.final_df
+        return self.final_df.head(self.top_n)
 
     def save_df(self):
-        return pd.DataFrame.to_csv(self.final_df, self.file_path)
+        '''
+        function to save the relations dataframe
+        '''
+        return pd.DataFrame.to_csv(self.final_df, self.file_path, sep='\t')
         
-
+def main():
+    argparser = ap.ArgumentParser(
+                                description= "Script that gets first layer relation for a concept_id")
+    argparser.add_argument("--API_KEY", "-a",action="store",  type = str,
+                            help="APIKEY to access database")
+    argparser.add_argument("--CONCEPT_PREFIX", "-p",  action="store", type=str,
+                            help=" Prefix of concept of interest")
+    argparser.add_argument("--TARGET_CONCEPT_ID", "-t", action="store", type=str,
+                             help="ID of the concept(s) of interest, separated by comma")
+    argparser.add_argument("--CONTROL_CONCEPT_ID", "-c", action="store", type=str,
+                             help="ID of the control concept(s), separated by comma")
+    argparser.add_argument("--TOP_N", "-n", action="store", type=int,
+                             help="Number of relations to return")
+    argparser.add_argument("--RESULT_DIRECTORY", "-d", action="store", type=str,
+                             help="Path to save result")
+    parsed = argparser.parse_args()
+    api_key = parsed.API_KEY
+    concept_prefix = parsed.CONCEPT_PREFIX
+    concept_id = parsed.TARGET_CONCEPT_ID
+    n = parsed.TOP_N
+    control_concept_id = parsed.CONTROL_CONCEPT_ID
+    result_dir = parsed.RESULT_DIRECTORY
+    if not os.path.isdir(result_dir):
+        os.mkdir(result_dir)
+    print("Result directory created")
+    # result_dir+'/'+concept_id
+    GetFirstLayer(api_key, concept_prefix, concept_id, top_n=n, download_path= f'{result_dir}/target').save_df()
+    GetFirstLayer(api_key, concept_prefix, control_concept_id,top_n=n, download_path= f'{result_dir}/control').save_df()
+if __name__ == '__main__':
+    main()

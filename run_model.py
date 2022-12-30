@@ -1,4 +1,11 @@
+'''
+usage
+run_model.py -a Hanze_group_2022 -d /homes/fabadmus/Internship/RAtest
+'''
+
 # import libraries
+import os
+import argparse as ap
 from sklearn.model_selection import GridSearchCV
 from sklearn.ensemble import RandomForestClassifier
 import sklearn.metrics as metrics
@@ -81,9 +88,9 @@ class TrainModel():
             X, y, test_size=0.3, random_state=42)
         #train model
         param_grid = {'min_samples_leaf':[3,5,7,10,15],'max_features':[0.5,'sqrt','log2'],
-                'max_depth':[10,15,20],
-                'class_weight':[{"POS":1,"NEG":1},'balanced'],
-                'criterion':['entropy','gini']}
+          'max_depth':[10,15,20],
+          'class_weight':[{"POS":3,"NEG":1},{"POS":1,"NEG":1}],
+          'criterion':['entropy','gini']}
 
         # model = RandomForestClassifier(random_state=42, class_weight='balanced', criterion='entropy',
         #               max_depth=20, max_features=0.5, min_samples_leaf=3)
@@ -125,8 +132,21 @@ class TrainModel():
         return val_proba_df
         
 def main():
-    train = TrainModel('Hanze_group_2022', '/homes/fabadmus/Internship/RA/second_layer', '/homes/fabadmus/Internship/RA/embedding', '/homes/fabadmus/Internship/RA/model_data_path', '/homes/fabadmus/Internship/RA/results')
-    predictions = train.make_predictions()
+    argparser = ap.ArgumentParser(
+                                description= "Script that does machine learning and makes prediction")
+    argparser.add_argument("--API_KEY", "-a",action="store",  type = str,
+                            help="APIKEY to access database")
+    argparser.add_argument("--RESULT_DIRECTORY", "-d", action="store", type=str,
+                             help="Path to save result")
+    parsed = argparser.parse_args()
+    api_key = parsed.API_KEY
+    result_dir = parsed.RESULT_DIRECTORY
+    if not os.path.isdir(result_dir):
+        os.mkdir(result_dir)
+    print("Result directory created")
+    # train = TrainModel(, '/homes/fabadmus/Internship/RA/second_layer', '/homes/fabadmus/Internship/RA/embedding', '/homes/fabadmus/Internship/RA/model_data_path', '/homes/fabadmus/Internship/RA/results')
+    model = TrainModel(api_key, f'{result_dir}/second_layer',f'{result_dir}/embedding', f'{result_dir}/model_data_path', f'{result_dir}/results')
+    predictions = model.make_predictions()
     print(predictions.head(20))
     
 if __name__ == '__main__':

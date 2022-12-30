@@ -1,3 +1,9 @@
+'''
+usage
+get_second_layer.py -a Hanze_group_2022 -s 2  -d /homes/fabadmus/Internship/RAtest
+'''
+import os
+import argparse as ap
 import pandas as pd
 import requests
 
@@ -7,15 +13,15 @@ class GetSecondLayer():
     '''class to get second layer relations of 
     positive and negative concepts 
     '''
-    def __init__(self, apikey, pos_df_path, neg_df_path, model_data_path, download_path, top_n):
+    def __init__(self, apikey, pos_df_path, neg_df_path, model_data_path, top_n, download_path):
         self.session = requests.Session()
         self.search_url = "relations"
         self.base_url = 'https://apimlqv2.tenwiseservice.nl/api/mlquery/'
         self.session.headers['referer'] = 'https://apimlqv2.tenwiseservice.nl/'
         self.session.get(f"{self.base_url}start/")
         self.payload = {'apikey': apikey, 'csrfmiddlewaretoken': self.session.cookies.get_dict()['csrftoken']}
-        self.pos_df = pd.read_csv(pos_df_path)
-        self.neg_df = pd.read_csv(neg_df_path)
+        self.pos_df = pd.read_csv(pos_df_path, sep="\t")
+        self.neg_df = pd.read_csv(neg_df_path, sep="\t")
         self.top_n = top_n
         self.model_data_path = model_data_path 
         self.file_path = download_path
@@ -25,9 +31,6 @@ class GetSecondLayer():
         self.second_relations_df = self.get_secondlayer_relation()
         self.clean_df = self.clean_second_layer()
         self.final_df = self.combine_dfs()
-        
-        # self.clean_df = self.clean_intra_df()
-        # self.embedding_df = self.label_intra_df()
         
     def join_files(self):
         '''funtion to combine the positive and negative sets and drop
@@ -43,8 +46,7 @@ class GetSecondLayer():
     def get_concept_set(self):
         ''' funtion to get the set of concepts in the first layer
         '''
-        set_of_concepts = set(self.full_df['object'].unique())
-        return set_of_concepts
+        return set(self.full_df['object'].unique())
     
     def save_model_df(self):
         ''' funtion to save the first layer dataframe for modelling
@@ -107,35 +109,22 @@ class GetSecondLayer():
         '''
         return pd.DataFrame.to_csv(self.final_df, self.file_path)
     
-    
-    # def clean_intra_df(self):
-    #     ''' function to clean the intra_df and drop uneccessary columns 
-    #     '''
-    #     # filter out self loops
-    #     self.clean_df = self.intra_relations_df[self.intra_relations_df['subject'] != self.intra_relations_df['object']]
-    #     # remove duplicates
-    #     self.clean_df = self.clean_df.iloc[::2]
-    #     # self.clean_df['weight'] = self.clean_df['score'] * self.clean_df['overlap']
-    #     return self.clean_df
-        
-    # def label_intra_df(self):
-    #     ''' function to label the intra relations as positive or
-    #     negative concepts and return the dataframe for embedding
-    #     '''
-    #     # first combine both dataframes
-    #     self.embedding_df = pd.concat([self.full_df, self.clean_df])
-    #     # create positive and negative sets
-    #     pos = set(self.full_df[self.full_df['label'] == 'POS'].object)
-    #     neg = set(self.full_df[self.full_df['label'] == 'NEG'].object)
-    #     # label based on the set
-    #     self.embedding_df.loc[self.embedding_df.label.isnull() & self.embedding_df.subject.isin (pos), 'label'] = 'POS'
-    #     self.embedding_df.loc[self.embedding_df.label.isnull() & self.embedding_df.subject.isin (neg), 'label'] = 'NEG'
-    #     # select the required columns
-    #     self.embedding_df = self.embedding_df[['subject', 'object', 'local_mi']]
-    #     return self.embedding_df
-        
-    # def save_embedding_df(self):
-    #     return pd.DataFrame.to_csv(self.embedding_df, self.file_path) 
-    
-
-    
+def main():
+    argparser = ap.ArgumentParser(
+                                description= "Script that gets first layer relation for a concept_id")
+    argparser.add_argument("--API_KEY", "-a",action="store",  type = str,
+                            help="APIKEY to access database")
+    argparser.add_argument("--SIZE", "-s", action="store", type=int,
+                             help="Size of second layer")
+    argparser.add_argument("--RESULT_DIRECTORY", "-d", action="store", type=str,
+                             help="Path to save result")
+    parsed = argparser.parse_args()
+    api_key = parsed.API_KEY
+    n = parsed.SIZE
+    result_dir = parsed.RESULT_DIRECTORY
+    if not os.path.isdir(result_dir):
+        os.mkdir(result_dir)
+    print("Result directory created")
+    GetSecondLayer(api_key, pos_df_path=f'{result_dir}/target', neg_df_path=f'{result_dir}/control', model_data_path =f'{result_dir}/model_data_path', download_path = f'{result_dir}/second_layer', top_n=n).save_second_layer()    
+if __name__ == '__main__':
+    main()   
