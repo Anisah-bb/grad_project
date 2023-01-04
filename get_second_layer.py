@@ -1,11 +1,12 @@
 '''
 usage
-get_second_layer.py -a Hanze_group_2022 -s 2  -d /homes/fabadmus/Internship/RAtest
+get_second_layer.py  -s 2  -d /homes/fabadmus/Internship/RAtest
 '''
 import os
 import argparse as ap
 import pandas as pd
 import requests
+import config
 
 
 #model_data_path = '/homes/fabadmus/Internship/labeled_file2'
@@ -111,15 +112,13 @@ class GetSecondLayer():
     
 def main():
     argparser = ap.ArgumentParser(
-                                description= "Script that gets first layer relation for a concept_id")
-    argparser.add_argument("--API_KEY", "-a",action="store",  type = str,
-                            help="APIKEY to access database")
+                                description= "Script that gets second layer relations for a target and a control")
     argparser.add_argument("--SIZE", "-s", action="store", type=int,
                              help="Size of second layer")
     argparser.add_argument("--RESULT_DIRECTORY", "-d", action="store", type=str,
                              help="Path to save result")
     parsed = argparser.parse_args()
-    api_key = parsed.API_KEY
+    api_key = config.API_KEY
     n = parsed.SIZE
     result_dir = parsed.RESULT_DIRECTORY
     if not os.path.isdir(result_dir):

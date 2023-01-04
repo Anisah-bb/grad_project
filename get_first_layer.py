@@ -1,12 +1,13 @@
 '''
 usage
-get_first_layer.py -a Hanze_group_2022 -p TWMET -t TWDIS_11098 -c TWDIS_09536  -n 50  -d /homes/fabadmus/Internship/RAtest
+get_first_layer.py -p TWMET -t TWDIS_11098 -c TWDIS_09536  -n 50  -d /homes/fabadmus/Internship/RAtest
 '''
 # import libraries
 import os
 import requests
 import pandas as pd
 import argparse as ap
+import config
 
 class GetFirstLayer(): 
     
@@ -107,8 +108,8 @@ class GetFirstLayer():
 def main():
     argparser = ap.ArgumentParser(
                                 description= "Script that gets first layer relation for a concept_id")
-    argparser.add_argument("--API_KEY", "-a",action="store",  type = str,
-                            help="APIKEY to access database")
+    # argparser.add_argument("--API_KEY", "-a",action="store",  type = str,
+    #                         help="APIKEY to access database")
     argparser.add_argument("--CONCEPT_PREFIX", "-p",  action="store", type=str,
                             help=" Prefix of concept of interest")
     argparser.add_argument("--TARGET_CONCEPT_ID", "-t", action="store", type=str,
@@ -120,7 +121,7 @@ def main():
     argparser.add_argument("--RESULT_DIRECTORY", "-d", action="store", type=str,
                              help="Path to save result")
     parsed = argparser.parse_args()
-    api_key = parsed.API_KEY
+    api_key = config.API_KEY
     concept_prefix = parsed.CONCEPT_PREFIX
     concept_id = parsed.TARGET_CONCEPT_ID
     n = parsed.TOP_N

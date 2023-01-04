@@ -1,6 +1,6 @@
 '''
 usage
-run_model.py -a Hanze_group_2022 -d /homes/fabadmus/Internship/RAtest
+run_model.py -m adaboost -d /homes/fabadmus/Internship/RAtest
 '''
 
 # import libraries
@@ -17,10 +17,12 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from gensim.models import Word2Vec
+from sklearn.ensemble import AdaBoostClassifier
+import config
 
 
 class TrainModel():
-    def __init__(self, apikey, second_layer, emdedding_file, model_file, out_file) :
+    def __init__(self, apikey, second_layer, emdedding_file, model_file, algorithm, out_file) :
         self.apikey = apikey
         self.session = requests.Session()
         self.base_url = 'https://apimlqv2.tenwiseservice.nl/api/mlquery/'
@@ -36,7 +38,12 @@ class TrainModel():
         self.emb_df_pos, self.emb_df_neg =  self.extract_embedding_sets()
         self.model_df = self.get_modeldf()
         self.validation_df = self.get_validationdf()
-        self.model = self.train_model()
+        self.X_train, self.X_test, self.y_train, self.y_test = self.prep_data()
+        self.alg = algorithm
+        if self.alg == 'rf':
+            self.model = self.do_random_forest()
+        elif self.alg == 'adaboost':
+            self.model = self.do_adaboost()
         self.predictions = self.make_predictions()
    
     def load_files(self):
@@ -78,7 +85,8 @@ class TrainModel():
                 subset=self.emb_df.columns[:-1], keep=False)
         
         return validation_df
-    def train_model(self):
+    
+    def prep_data(self):
         #prepare data for modelling
         # assign the independent and dependent variables
         X = self.model_df.iloc[:,:-1].values
@@ -86,6 +94,9 @@ class TrainModel():
         # split into training and testing
         X_train, X_test, y_train, y_test = train_test_split(
             X, y, test_size=0.3, random_state=42)
+        return X_train, X_test, y_train, y_test
+        
+    def do_random_forest(self):
         #train model
         param_grid = {'min_samples_leaf':[3,5,7,10,15],'max_features':[0.5,'sqrt','log2'],
           'max_depth':[10,15,20],
@@ -95,12 +106,25 @@ class TrainModel():
         # model = RandomForestClassifier(random_state=42, class_weight='balanced', criterion='entropy',
         #               max_depth=20, max_features=0.5, min_samples_leaf=3)
         model1 = GridSearchCV(RandomForestClassifier(),param_grid, verbose=1,n_jobs=-1,scoring='roc_auc')
-        model1.fit(X_train,y_train)
-        pred = model1.predict(X_test)
-        print(classification_report(y_test, pred))
-        print ('\n',model1.best_estimator_)
+        model1.fit(self.X_train,self.y_train)
+        pred1 = model1.predict(self.X_test)
+        print(classification_report(self.y_test, pred1))
+        # print ('\n',model1.best_estimator_)
+        print("RF Accuracy:",metrics.accuracy_score(self.y_test, pred1))
         return model1
-        
+    def do_adaboost(self):
+        # Create adaboost classifer object
+        abc = AdaBoostClassifier(n_estimators=50,
+                         learning_rate=1)
+        # Train Adaboost Classifer
+        model2 = abc.fit(self.X_train, self.y_train)
+
+        #Predict the response for test dataset
+        pred2 = model2.predict(self.X_test)
+        print(classification_report(self.y_test, pred2))
+        print("AdaBoost Accuracy:",metrics.accuracy_score(self.y_test, pred2))
+        return model2   
+       
 
     def make_predictions(self):
         # make predictions on the unknown
@@ -134,18 +158,19 @@ class TrainModel():
 def main():
     argparser = ap.ArgumentParser(
                                 description= "Script that does machine learning and makes prediction")
-    argparser.add_argument("--API_KEY", "-a",action="store",  type = str,
-                            help="APIKEY to access database")
+    argparser.add_argument("--ALGORITHM", "-m",action="store",  type = str,
+                            help="Algoritm for classificatio")
     argparser.add_argument("--RESULT_DIRECTORY", "-d", action="store", type=str,
                              help="Path to save result")
     parsed = argparser.parse_args()
-    api_key = parsed.API_KEY
+    api_key = config.API_KEY
+    algorithm = parsed.ALGORITHM
     result_dir = parsed.RESULT_DIRECTORY
     if not os.path.isdir(result_dir):
         os.mkdir(result_dir)
     print("Result directory created")
     # train = TrainModel(, '/homes/fabadmus/Internship/RA/second_layer', '/homes/fabadmus/Internship/RA/embedding', '/homes/fabadmus/Internship/RA/model_data_path', '/homes/fabadmus/Internship/RA/results')
-    model = TrainModel(api_key, f'{result_dir}/second_layer',f'{result_dir}/embedding', f'{result_dir}/model_data_path', f'{result_dir}/results')
+    model = TrainModel(api_key, f'{result_dir}/second_layer',f'{result_dir}/embedding', f'{result_dir}/model_data_path', algorithm,  f'{result_dir}/results')
     predictions = model.make_predictions()
     print(predictions.head(20))
     
