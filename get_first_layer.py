@@ -1,6 +1,7 @@
 '''
+This script gets the first layer of relations for a given concept_id.
 usage
-get_first_layer.py -p TWMET -t TWDIS_11098 -c TWDIS_09536  -n 50  -d /homes/fabadmus/Internship/RAtest
+get_first_layer.py -p TWMET -i TWDIS_11098 -n 50 
 '''
 # import libraries
 import os
@@ -108,30 +109,26 @@ class GetFirstLayer():
 def main():
     argparser = ap.ArgumentParser(
                                 description= "Script that gets first layer relation for a concept_id")
-    # argparser.add_argument("--API_KEY", "-a",action="store",  type = str,
-    #                         help="APIKEY to access database")
     argparser.add_argument("--CONCEPT_PREFIX", "-p",  action="store", type=str,
                             help=" Prefix of concept of interest")
-    argparser.add_argument("--TARGET_CONCEPT_ID", "-t", action="store", type=str,
+    argparser.add_argument("--CONCEPT_ID", "-i", action="store", type=str,
                              help="ID of the concept(s) of interest, separated by comma")
-    argparser.add_argument("--CONTROL_CONCEPT_ID", "-c", action="store", type=str,
-                             help="ID of the control concept(s), separated by comma")
     argparser.add_argument("--TOP_N", "-n", action="store", type=int,
                              help="Number of relations to return")
-    argparser.add_argument("--RESULT_DIRECTORY", "-d", action="store", type=str,
-                             help="Path to save result")
+    # argparser.add_argument("--RESULT_DIRECTORY", "-d", action="store", type=str,
+    #                          help="Path to save result")
     parsed = argparser.parse_args()
     api_key = config.API_KEY
     concept_prefix = parsed.CONCEPT_PREFIX
-    concept_id = parsed.TARGET_CONCEPT_ID
+    concept_id = parsed.CONCEPT_ID
     n = parsed.TOP_N
-    control_concept_id = parsed.CONTROL_CONCEPT_ID
-    result_dir = parsed.RESULT_DIRECTORY
+    result_dir = config.RESULTS_DIRECTORY
+    # result_dir = parsed.RESULT_DIRECTORY
     if not os.path.isdir(result_dir):
         os.mkdir(result_dir)
-    print("Result directory created")
+        print("Result directory created")
     # result_dir+'/'+concept_id
-    GetFirstLayer(api_key, concept_prefix, concept_id, top_n=n, download_path= f'{result_dir}/target').save_df()
-    GetFirstLayer(api_key, concept_prefix, control_concept_id,top_n=n, download_path= f'{result_dir}/control').save_df()
+    GetFirstLayer(api_key, concept_prefix, concept_id, top_n=n, download_path= result_dir+'/'+concept_id).save_df()
+    # GetFirstLayer(api_key, concept_prefix, control_concept_id,top_n=n, download_path= f'{result_dir}/control').save_df()
 if __name__ == '__main__':
     main()

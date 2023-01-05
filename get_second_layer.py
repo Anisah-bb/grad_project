@@ -1,6 +1,7 @@
 '''
+This script gets the second layer of relations from the first layer relations
 usage
-get_second_layer.py  -s 2  -d /homes/fabadmus/Internship/RAtest
+get_second_layer.py  -t TWDIS_06685 -c TWDIS_09536 -s 2 
 '''
 import os
 import argparse as ap
@@ -113,17 +114,23 @@ class GetSecondLayer():
 def main():
     argparser = ap.ArgumentParser(
                                 description= "Script that gets second layer relations for a target and a control")
+    argparser.add_argument("--TARGET_FILE", "-t", action="store", type=str,
+                             help="name of target relations")
+    argparser.add_argument("--CONTROL_FILE", "-c", action="store", type=str,
+                             help="name of control relations")
     argparser.add_argument("--SIZE", "-s", action="store", type=int,
                              help="Size of second layer")
-    argparser.add_argument("--RESULT_DIRECTORY", "-d", action="store", type=str,
-                             help="Path to save result")
+    # argparser.add_argument("--RESULT_DIRECTORY", "-d", action="store", type=str,
+    #                          help="Path to save result")
     parsed = argparser.parse_args()
     api_key = config.API_KEY
+    targ = parsed.TARGET_FILE
+    cont = parsed.CONTROL_FILE
     n = parsed.SIZE
-    result_dir = parsed.RESULT_DIRECTORY
+    result_dir = config.RESULTS_DIRECTORY
     if not os.path.isdir(result_dir):
         os.mkdir(result_dir)
-    print("Result directory created")
-    GetSecondLayer(api_key, pos_df_path=f'{result_dir}/target', neg_df_path=f'{result_dir}/control', model_data_path =f'{result_dir}/model_data_path', download_path = f'{result_dir}/second_layer', top_n=n).save_second_layer()    
+        print("Result directory created")
+    GetSecondLayer(api_key, pos_df_path=result_dir+'/'+targ, neg_df_path=result_dir+'/'+cont, model_data_path =f'{result_dir}/model_data_path', download_path = f'{result_dir}/second_layer', top_n=n).save_second_layer()    
 if __name__ == '__main__':
     main()   

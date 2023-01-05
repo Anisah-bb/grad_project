@@ -1,6 +1,7 @@
 '''
+This script creates a graph of the networks and does the embedding of the network.
 usage
-get_embedding.py -d /homes/fabadmus/Internship/RAtest
+get_embedding.py -s second_layer 
 '''
 
 import os
@@ -9,6 +10,7 @@ import pandas as pd
 import networkx as nx
 from node2vec import Node2Vec
 from gensim.models import Word2Vec
+import config
 
 class EmbeddData():
     
@@ -51,14 +53,17 @@ class EmbeddData():
 def main():
     argparser = ap.ArgumentParser(
                                 description= "Script that performs embedding")
+    argparser.add_argument("--SECOND_LAYER", "-s", action="store", type=str,
+                             help="Name ofsecond layer file")
     argparser.add_argument("--RESULT_DIRECTORY", "-d", action="store", type=str,
                              help="Path to save result")
     parsed = argparser.parse_args()
-    result_dir = parsed.RESULT_DIRECTORY
+    second_layer_path = parsed.SECOND_LAYER
+    result_dir = config.RESULTS_DIRECTORY
     if not os.path.isdir(result_dir):
         os.mkdir(result_dir)
-    print("Result directory created")
-    EmbeddData(f'{result_dir}/second_layer', f'{result_dir}/embedding').get_embedding()
+        print("Result directory created")
+    EmbeddData(result_dir+'/'+second_layer_path, f'{result_dir}/embedding').get_embedding()
     
     # EmbeddData('/homes/fabadmus/Internship/second_layer', '/homes/fabadmus/Internship/embedding').get_embedding()
     #embedding.get_embedding()

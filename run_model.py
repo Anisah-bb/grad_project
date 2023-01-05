@@ -1,6 +1,7 @@
 '''
+This scripts performs classification and makes predictions
 usage
-run_model.py -m adaboost -d /homes/fabadmus/Internship/RAtest
+run_model.py -s 'second_layer' -m 'model_data_path' -e 'embedding' -a adaboost 
 '''
 
 # import libraries
@@ -102,9 +103,6 @@ class TrainModel():
           'max_depth':[10,15,20],
           'class_weight':[{"POS":3,"NEG":1},{"POS":1,"NEG":1}],
           'criterion':['entropy','gini']}
-
-        # model = RandomForestClassifier(random_state=42, class_weight='balanced', criterion='entropy',
-        #               max_depth=20, max_features=0.5, min_samples_leaf=3)
         model1 = GridSearchCV(RandomForestClassifier(),param_grid, verbose=1,n_jobs=-1,scoring='roc_auc')
         model1.fit(self.X_train,self.y_train)
         pred1 = model1.predict(self.X_test)
@@ -152,25 +150,34 @@ class TrainModel():
         # add ids to the dataframe
         val_proba_df['annotation'] = annotated_ids
         val_proba_df.head(10)
-        pd.DataFrame.to_csv(val_proba_df, self.prediction_path)
+        pd.DataFrame.to_csv(val_proba_df, self.prediction_path, sep='\t')
         return val_proba_df
         
 def main():
     argparser = ap.ArgumentParser(
                                 description= "Script that does machine learning and makes prediction")
-    argparser.add_argument("--ALGORITHM", "-m",action="store",  type = str,
-                            help="Algoritm for classificatio")
-    argparser.add_argument("--RESULT_DIRECTORY", "-d", action="store", type=str,
-                             help="Path to save result")
+    argparser.add_argument("--SECOND_LAYER", "-s", action="store", type=str,
+                             help="name of second layer relations")
+    argparser.add_argument("--MODEL_DATA", "-m", action="store", type=str,
+                             help="name of modelling data")
+    argparser.add_argument("--EMBEDDINGS", "-e", action="store", type=str,
+                             help="name of embeddings file")
+    argparser.add_argument("--ALGORITHM", "-a",action="store",  type = str,
+                            help="Algoritm for classification")
+    # argparser.add_argument("--RESULT_DIRECTORY", "-d", action="store", type=str,
+    #                          help="Path to save result")
     parsed = argparser.parse_args()
     api_key = config.API_KEY
+    second_layer_path = parsed.SECOND_LAYER
+    model_data_path = parsed.MODEL_DATA
+    embedding = parsed.EMBEDDINGS
     algorithm = parsed.ALGORITHM
-    result_dir = parsed.RESULT_DIRECTORY
+    result_dir = config.RESULTS_DIRECTORY
     if not os.path.isdir(result_dir):
         os.mkdir(result_dir)
-    print("Result directory created")
+        print("Result directory created")
     # train = TrainModel(, '/homes/fabadmus/Internship/RA/second_layer', '/homes/fabadmus/Internship/RA/embedding', '/homes/fabadmus/Internship/RA/model_data_path', '/homes/fabadmus/Internship/RA/results')
-    model = TrainModel(api_key, f'{result_dir}/second_layer',f'{result_dir}/embedding', f'{result_dir}/model_data_path', algorithm,  f'{result_dir}/results')
+    model = TrainModel(api_key, result_dir+'/'+second_layer_path,result_dir+'/'+embedding, result_dir+'/'+model_data_path, algorithm,  f'{result_dir}/results')
     predictions = model.make_predictions()
     print(predictions.head(20))
     
