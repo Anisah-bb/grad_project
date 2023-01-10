@@ -149,8 +149,8 @@ class TrainModel():
             annotated_ids.extend(annotation[id]['name'])
         # add ids to the dataframe
         val_proba_df['annotation'] = annotated_ids
-        val_proba_df.head(10)
-        pd.DataFrame.to_csv(val_proba_df, self.prediction_path, sep='\t')
+        metabs = val_proba_df[['POS_prob', 'annotation']]
+        pd.DataFrame.to_csv(metabs, self.prediction_path, sep='\t')
         return val_proba_df
         
 def main():

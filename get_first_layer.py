@@ -29,7 +29,10 @@ class GetFirstLayer():
         self.target_prefix = str(concept_prefix)
         self.df = self.json_todf()
         self.top_n = top_n
-        self.final_df = self.modify_df()
+        if self.top_n == 0:
+            self.final_df = self.modify_df()
+        else:
+            self.final_df = self.modify_df().head(top_n)
         self.file_path = download_path
         
     
@@ -91,14 +94,13 @@ class GetFirstLayer():
         '''
         self.df['subject_annotated'] = self.df['subject'].apply(self.annotating)
         self.df['object_annotated'] = self.df['object'].apply(self.annotating)
-        # self.df['weight'] = self.df['score'] * self.df['overlap']
         self.df.sort_values('score', ascending=False, inplace=True)
         self.df.sort_values('overlap', ascending=False, inplace=True)
         self.df.sort_values('local_mi', ascending=False, inplace=True)
         self.df.reset_index(drop=True, inplace=True)
         # prefix_objects = ('TWMET', 'TWFOOD')
         self.final_df = self.df[self.df['object'].str.startswith(self.target_prefix)].reset_index(drop=True)
-        return self.final_df.head(self.top_n)
+        return self.final_df
 
     def save_df(self):
         '''
@@ -113,7 +115,7 @@ def main():
                             help=" Prefix of concept of interest")
     argparser.add_argument("--CONCEPT_ID", "-i", action="store", type=str,
                              help="ID of the concept(s) of interest, separated by comma")
-    argparser.add_argument("--TOP_N", "-n", action="store", type=int,
+    argparser.add_argument("--TOP_N", "-n", action="store", type=int, default=0,
                              help="Number of relations to return")
     # argparser.add_argument("--RESULT_DIRECTORY", "-d", action="store", type=str,
     #                          help="Path to save result")
