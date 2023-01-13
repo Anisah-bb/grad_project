@@ -1,7 +1,7 @@
 '''
 This scripts performs classification and makes predictions
 usage
-run_model.py -s 'second_layer' -m 'model_data_path' -e 'embedding' -a adaboost 
+python run_model.py -s 'second_layer' -m 'model_data_path' -e 'embedding.emb' -a adaboost 
 '''
 
 # import libraries
@@ -10,6 +10,7 @@ import argparse as ap
 from sklearn.model_selection import GridSearchCV
 from sklearn.ensemble import RandomForestClassifier
 import sklearn.metrics as metrics
+import gensim.models.keyedvectors as word2vec
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import classification_report
 import requests
@@ -23,7 +24,13 @@ import config
 
 
 class TrainModel():
-    def __init__(self, apikey, second_layer, emdedding_file, model_file, algorithm, out_file) :
+    """ 
+    class to represnt a classification model
+    """
+    def __init__(self, apikey, second_layer, embedding_file, model_file, algorithm, out_file) :
+        """
+        function to construct all attributes of a classification model
+        """
         self.apikey = apikey
         self.session = requests.Session()
         self.base_url = 'https://apimlqv2.tenwiseservice.nl/api/mlquery/'
@@ -32,11 +39,11 @@ class TrainModel():
         self.payload = {'apikey': self.apikey,  # contact KMAP for API
             'csrfmiddlewaretoken': self.session.cookies.get_dict()['csrftoken']}
         self.second_layer = second_layer
-        self.emdedding_file = emdedding_file
+        self.embedding_file = embedding_file
         self.prediction_path = out_file
         self.model_file = model_file
-        self.emb_df = self.load_files()
-        self.emb_df_pos, self.emb_df_neg =  self.extract_embedding_sets()
+        self.embeddings_df = self.load_embeddings()
+        self.label_embedding_sets()
         self.model_df = self.get_modeldf()
         self.validation_df = self.get_validationdf()
         self.X_train, self.X_test, self.y_train, self.y_test = self.prep_data()
@@ -47,57 +54,79 @@ class TrainModel():
             self.model = self.do_adaboost()
         self.predictions = self.make_predictions()
    
-    def load_files(self):
-        second_layer = pd.read_csv(self.second_layer)
-        second_layer = second_layer[second_layer.subject.str.startswith('TWDIS') == False]
+    def load_embeddings(self):
+        """ 
+        function to load embedding file
+        """
+        second_layer = pd.read_csv(self.second_layer, sep='\t')
         G = nx.from_pandas_edgelist(second_layer, source='subject',
                                 target='object', edge_attr='local_mi', edge_key='local_mi', create_using= None)
 
-        embeddings = Word2Vec.load(self.emdedding_file)
+        embeddings = word2vec.KeyedVectors.load_word2vec_format(self.embedding_file)
         # Convert embeddings to dataframe
-        emb_df = (pd.DataFrame([embeddings.wv.get_vector(str(n))
+        embeddings_df = (pd.DataFrame([embeddings.get_vector(str(n))
                                 for n in G.nodes()], index=G.nodes))
-        return emb_df
+        return embeddings_df
         
         
-    def extract_embedding_sets(self):
-        #load  the first layer 
-        labelled_df = pd.read_csv(self.model_file)
+    def label_embedding_sets(self):
+        """
+        function to label embeddings 
+        """
+        #load the labeled first layer file
+        labelled_df = pd.read_csv(self.model_file, '\t')
         # get set of positive and negative concepts
         pos = set(labelled_df[labelled_df['label'] == 'POS'].object)
         neg = set(labelled_df[labelled_df['label'] == 'NEG'].object)
-
-        # create separate dataframes of embeddings bases on the sets
-        emb_df_pos = self.emb_df[self.emb_df.index.isin(pos)]
-        emb_df_pos['set'] = 'POS'
-        print(len(emb_df_pos))
-        emb_df_neg = self.emb_df[self.emb_df.index.isin(neg)]
-        emb_df_neg['set'] = 'NEG'
-        print(len(emb_df_neg))
-        return emb_df_pos, emb_df_neg
+        # label embeddings based on the laballed _df 
+        self.embeddings_df.loc[self.embeddings_df.index.isin(pos), 'SET'] = 'POS'
+        print(len(self.embeddings_df.loc[self.embeddings_df.SET == 'POS']))
+        self.embeddings_df.loc[self.embeddings_df.index.isin(neg), 'SET'] = 'NEG'
+        print(len(self.embeddings_df.loc[self.embeddings_df.SET == 'NEG']))
+        self.embeddings_df.loc[self.embeddings_df.SET.isnull(), 'SET'] = 'UNK'
+        print(len(self.embeddings_df.loc[self.embeddings_df.SET == 'UNK']))
+        # emb_df_pos = self.emb_df[self.emb_df.index.isin(pos)]
+        # emb_df_pos['set'] = 'POS'
+        # print(len(emb_df_pos))
+        # emb_df_neg = self.emb_df[self.emb_df.index.isin(neg)]
+        # emb_df_neg['set'] = 'NEG'
+        # print(len(emb_df_neg))
+        # return emb_df_pos, emb_df_neg
         
     def get_modeldf(self):
-        # make training data from the embedding data
-        model_df = pd.concat([self.emb_df_pos, self.emb_df_neg])
-        return model_df
+        """
+        function to get the modelling data points 
+        """
+        return self.embeddings_df.loc[
+            (self.embeddings_df.SET == 'POS') | (self.embeddings_df.SET == 'NEG')
+        ]
     def get_validationdf(self):
+        """
+        function to get the validation data
+        """
         # set the unkown rows as a validation dataframe
-        validation_df = pd.concat([self.emb_df_pos, self.emb_df_neg, self.emb_df]).drop_duplicates(
-                subset=self.emb_df.columns[:-1], keep=False)
-        
+        validation_df = self.embeddings_df.loc[self.embeddings_df.SET == 'UNK']
+        # validation_df = pd.concat([self.emb_df_pos, self.emb_df_neg, self.emb_df]).drop_duplicates(
+        #         subset=self.emb_df.columns[:-1], keep=False)
         return validation_df
     
     def prep_data(self):
+        """
+        function to prepare modelling data for training
+        """
         #prepare data for modelling
         # assign the independent and dependent variables
         X = self.model_df.iloc[:,:-1].values
-        y = self.model_df['set']
+        y = self.model_df['SET']
         # split into training and testing
         X_train, X_test, y_train, y_test = train_test_split(
             X, y, test_size=0.3, random_state=42)
         return X_train, X_test, y_train, y_test
         
     def do_random_forest(self):
+        """
+        function to train a random forest model classifier model
+        """
         #train model
         param_grid = {'min_samples_leaf':[3,5,7,10,15],'max_features':[0.5,'sqrt','log2'],
           'max_depth':[10,15,20],
@@ -105,12 +134,15 @@ class TrainModel():
           'criterion':['entropy','gini']}
         model1 = GridSearchCV(RandomForestClassifier(),param_grid, verbose=1,n_jobs=-1,scoring='roc_auc')
         model1.fit(self.X_train,self.y_train)
+        print ('\n',model1.best_estimator_)
         pred1 = model1.predict(self.X_test)
         print(classification_report(self.y_test, pred1))
-        # print ('\n',model1.best_estimator_)
         print("RF Accuracy:",metrics.accuracy_score(self.y_test, pred1))
         return model1
     def do_adaboost(self):
+        """
+        function to train an AdaBoost classifier model
+        """
         # Create adaboost classifer object
         abc = AdaBoostClassifier(n_estimators=50,
                          learning_rate=1)
@@ -125,20 +157,27 @@ class TrainModel():
        
 
     def make_predictions(self):
+        """
+        function to make predictions from the classifier model 
+        """
         # make predictions on the unknown
-        X_val = self.validation_df.iloc[:,:-1]
-        pred = self.model.predict(X_val)
+        X_val = self.embeddings_df.iloc[:,:-1]
+        predictions = self.model.predict(X_val)
         # get the prediction probabilities of the unknown
         val_proba = self.model.predict_proba(X_val)
         # convert predictions and actual values to dataframe
         val_proba_df = pd.DataFrame(val_proba, index=X_val.index,
                                         columns=['NEG_prob', 'POS_prob'])
-        val_proba_df['predictions'] = pred
-        val_proba_df = val_proba_df.sort_values('POS_prob', ascending=False)
-        val_proba_df
-
+        val_proba_df['predictions'] = predictions
+        #val_proba_df = val_proba_df.sort_values('POS_prob', ascending=False)
+        
+        # combine actual and predicted values 
+        val_proba_df.index.names = ['ID']
+        self.embeddings_df.index.names = ['ID']
+        predictions_df = pd.merge(self.embeddings_df['SET'],val_proba_df, how = 'left', on = 'ID')
+    
         # annotate predictions
-        ids = list(val_proba_df.index)
+        ids = list(predictions_df.index)
         self.payload['concept_ids'] = ",".join(ids)
         results = self.session.post(f"{self.base_url}conceptset/annotation/", self.payload)
         js = results.json()
@@ -148,10 +187,12 @@ class TrainModel():
         for id in ids:
             annotated_ids.extend(annotation[id]['name'])
         # add ids to the dataframe
-        val_proba_df['annotation'] = annotated_ids
-        metabs = val_proba_df[['POS_prob', 'annotation']]
+        predictions_df['annotation'] = annotated_ids
+        predictions_df = predictions_df.sort_values('POS_prob', ascending=False)
+        metabs = predictions_df.sort_values('POS_prob', ascending=False)
+        #metabs = predictions_df[['POS_prob', 'annotation']]
         pd.DataFrame.to_csv(metabs, self.prediction_path, sep='\t')
-        return val_proba_df
+        return predictions_df
         
 def main():
     argparser = ap.ArgumentParser(

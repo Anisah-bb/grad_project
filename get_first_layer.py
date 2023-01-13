@@ -1,7 +1,7 @@
 '''
 This script gets the first layer of relations for a given concept_id.
 usage
-get_first_layer.py -p TWMET -i TWDIS_11098 -n 50 
+python get_first_layer.py -p TWMET -i TWDIS_11098 -n 50 
 '''
 # import libraries
 import os
@@ -11,12 +11,18 @@ import argparse as ap
 import config
 
 class GetFirstLayer(): 
+    """
+    class to represnt first layer of relations
+    for a concept_id
+    """
+
     
     def __init__(self, api_key, concept_prefix,  *concept_id, top_n, download_path ):
-        '''function to set up connection to the API and to
-        catch the concept_id of interest
-        '''
-    # Set up the connection to the api
+        """
+        function to set up connection to the API and to construct all 
+        necessary attributes for the first layer for concept_id of interest
+        """
+        # Set up the connection to the api
         self.session = requests.Session()
         self.base_url = 'https://apimlqv2.tenwiseservice.nl/api/mlquery/'
         self.session.headers['referer'] = 'https://apimlqv2.tenwiseservice.nl/'
@@ -35,46 +41,43 @@ class GetFirstLayer():
             self.final_df = self.modify_df().head(top_n)
         self.file_path = download_path
         
-    
-    
-    # create a function to get relations from API
+
     def get_relations(self):  
-        '''
+        """
         function to get concept relations from API
         input : concept_id
         output: payload, relations
-        '''
+        """
         self.payload['concept_ids_subject'] = self.concept_id
         results = self.session.post(f"{self.base_url}conceptset/relations/", self.payload)
         rv = results.json()
-        self.relations = rv['result']['relations']
-        object_ids = {x['object']:1 for x in self.relations}
+        relations = rv['result']['relations']
+        object_ids = {x['object']:1 for x in relations}
         my_id_list = [self.concept_id] + list(object_ids.keys())
         self.payload['concept_ids'] = ",".join(my_id_list)
 
         return self.payload, self.relations
     
     def annotate(self):
-        '''
-        function to annotate payload
-        '''
+        """
+        function to retreive concept annotations
+        """
         results = self.session.post(f"{self.base_url}conceptset/annotation/", self.payload)
         rv = results.json()
         return rv['result']['annotation']
     
-        # function to annotate concept
     def annotating(self, concept):
-        '''
-        function to annotate concept
-        '''
+        """
+        function to retreive the names of concepts
+        """
         return self.annotation[concept]['name'][0]
     
     def json_todf(self):
-        '''
+        """
         function to convert results from json to pandas data frame
         input: relations in json
         output: pandas dataframe of relations
-        '''
+        """
         # Convert the results from json to pandas df
         self.df = pd.json_normalize(self.relations)
         self.df = self.df[['subject', 'object', 'score', 'overlap', 'local_mi']]
@@ -82,16 +85,14 @@ class GetFirstLayer():
         # self.df = self.df[self.df['overlap'] >= 100].reset_index(drop=True)
         return self.df
 
-
-    # function to modify the dataframe
     def modify_df(self):
-        '''
+        """
         function to modify the relations dataframe by applying the
         annotating function, sorting according to score, overlap and
         weight, and filtering for food and metabolite relations only
-        input: dataframe
+        input: relations dataframe
         output: modified dataframe
-        '''
+        """
         self.df['subject_annotated'] = self.df['subject'].apply(self.annotating)
         self.df['object_annotated'] = self.df['object'].apply(self.annotating)
         self.df.sort_values('score', ascending=False, inplace=True)
@@ -103,9 +104,9 @@ class GetFirstLayer():
         return self.final_df
 
     def save_df(self):
-        '''
+        """
         function to save the relations dataframe
-        '''
+        """
         return pd.DataFrame.to_csv(self.final_df, self.file_path, sep='\t')
         
 def main():
@@ -117,8 +118,7 @@ def main():
                              help="ID of the concept(s) of interest, separated by comma")
     argparser.add_argument("--TOP_N", "-n", action="store", type=int, default=0,
                              help="Number of relations to return")
-    # argparser.add_argument("--RESULT_DIRECTORY", "-d", action="store", type=str,
-    #                          help="Path to save result")
+
     parsed = argparser.parse_args()
     api_key = config.API_KEY
     concept_prefix = parsed.CONCEPT_PREFIX
