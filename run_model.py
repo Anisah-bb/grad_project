@@ -24,12 +24,26 @@ import config
 
 
 class TrainModel():
-    """ 
-    class to represnt a classification model
+    """class that represnts a classification model pipeline
+
+    :return: a classification object
+    :rtype: None
     """
     def __init__(self, apikey, second_layer, embedding_file, model_file, algorithm, out_file) :
-        """
-        function to construct all attributes of a classification model
+        """_summary_
+
+        :param apikey: key to access database API
+        :type apikey: str
+        :param second_layer: path to the second layer relations
+        :type second_layer: str
+        :param embedding_file: path to embedding file
+        :type embedding_file: str
+        :param model_file: path to relations for modelling
+        :type model_file: str
+        :param algorithm: algorithm for classification
+        :type algorithm: str
+        :param out_file: path to save predictions
+        :type out_file: str
         """
         self.apikey = apikey
         self.session = requests.Session()
@@ -55,8 +69,10 @@ class TrainModel():
         self.predictions = self.make_predictions()
    
     def load_embeddings(self):
-        """ 
-        function to load embedding file
+        """function to load embedding file
+
+        :return: embeddings for modelling
+        :rtype: DataFrame
         """
         second_layer = pd.read_csv(self.second_layer, sep='\t')
         G = nx.from_pandas_edgelist(second_layer, source='subject',
@@ -70,8 +86,7 @@ class TrainModel():
         
         
     def label_embedding_sets(self):
-        """
-        function to label embeddings 
+        """function to label embeddings for training
         """
         #load the labeled first layer file
         labelled_df = pd.read_csv(self.model_file, '\t')
@@ -85,24 +100,21 @@ class TrainModel():
         print(len(self.embeddings_df.loc[self.embeddings_df.SET == 'NEG']))
         self.embeddings_df.loc[self.embeddings_df.SET.isnull(), 'SET'] = 'UNK'
         print(len(self.embeddings_df.loc[self.embeddings_df.SET == 'UNK']))
-        # emb_df_pos = self.emb_df[self.emb_df.index.isin(pos)]
-        # emb_df_pos['set'] = 'POS'
-        # print(len(emb_df_pos))
-        # emb_df_neg = self.emb_df[self.emb_df.index.isin(neg)]
-        # emb_df_neg['set'] = 'NEG'
-        # print(len(emb_df_neg))
-        # return emb_df_pos, emb_df_neg
         
     def get_modeldf(self):
-        """
-        function to get the modelling data points 
+        """function to get the modelling data points 
+
+        :return: modelling embeddings
+        :rtype: DataFrame
         """
         return self.embeddings_df.loc[
             (self.embeddings_df.SET == 'POS') | (self.embeddings_df.SET == 'NEG')
         ]
     def get_validationdf(self):
-        """
-        function to get the validation data
+        """function to get the validation data
+
+        :return: validation embeddings
+        :rtype: DataFrame
         """
         # set the unkown rows as a validation dataframe
         validation_df = self.embeddings_df.loc[self.embeddings_df.SET == 'UNK']
@@ -111,8 +123,10 @@ class TrainModel():
         return validation_df
     
     def prep_data(self):
-        """
-        function to prepare modelling data for training
+        """function to prepare modelling data for training
+
+        :return: trining and testing data
+        :rtype: list
         """
         #prepare data for modelling
         # assign the independent and dependent variables
@@ -124,8 +138,10 @@ class TrainModel():
         return X_train, X_test, y_train, y_test
         
     def do_random_forest(self):
-        """
-        function to train a random forest model classifier model
+        """function to train a random forest model classifier model
+
+        :return: rf model
+        :rtype: scikit learn model
         """
         #train model
         param_grid = {'min_samples_leaf':[3,5,7,10,15],'max_features':[0.5,'sqrt','log2'],
@@ -138,10 +154,13 @@ class TrainModel():
         pred1 = model1.predict(self.X_test)
         print(classification_report(self.y_test, pred1))
         print("RF Accuracy:",metrics.accuracy_score(self.y_test, pred1))
+        print(type(model1))
         return model1
     def do_adaboost(self):
-        """
-        function to train an AdaBoost classifier model
+        """function to train an AdaBoost classifier model
+
+        :return: adaboost model
+        :rtype: scikit model
         """
         # Create adaboost classifer object
         abc = AdaBoostClassifier(n_estimators=50,
@@ -157,8 +176,10 @@ class TrainModel():
        
 
     def make_predictions(self):
-        """
-        function to make predictions from the classifier model 
+        """function to make predictions from the classifier model 
+
+        :return: predictions dataframe
+        :rtype: DataFrame
         """
         # make predictions on the unknown
         X_val = self.embeddings_df.iloc[:,:-1]

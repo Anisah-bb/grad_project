@@ -10,18 +10,28 @@ import pandas as pd
 import argparse as ap
 import config
 
-class GetFirstLayer(): 
-    """
-    class to represnt first layer of relations
+class GetFirstLayer():
+    """  class to represnt first layer of relations
     for a concept_id
+
+    :return: a first layer object
+    :rtype: None
     """
 
-    
     def __init__(self, api_key, concept_prefix,  *concept_id, top_n, download_path ):
+        """function to set up connection to the API and to construct all 
+        necessary attributes for the first layer of concept_id of interest
+
+        :param api_key: key to access database API
+        :type api_key: str
+        :param concept_prefix: prefix that describes type of concept
+        :type concept_prefix: str
+        :param top_n: the number of relations to be returned after sorted from top to bottom
+        :type top_n: int
+        :param download_path: path to save the relations file
+        :type download_path: str
         """
-        function to set up connection to the API and to construct all 
-        necessary attributes for the first layer for concept_id of interest
-        """
+        
         # Set up the connection to the api
         self.session = requests.Session()
         self.base_url = 'https://apimlqv2.tenwiseservice.nl/api/mlquery/'
@@ -30,7 +40,7 @@ class GetFirstLayer():
         self.payload = {'apikey': api_key,  # contact KMAP for API
             'csrfmiddlewaretoken': self.session.cookies.get_dict()['csrftoken']}
         self.concept_id = ",".join([*concept_id])
-        self.payload, self.relations = self.get_relations()
+        self.relations = self.get_relations()
         self.annotation = self.annotate()
         self.target_prefix = str(concept_prefix)
         self.df = self.json_todf()
@@ -42,12 +52,13 @@ class GetFirstLayer():
         self.file_path = download_path
         
 
-    def get_relations(self):  
+    def get_relations(self): 
+        """function to get concept relations from API
+
+        :return: relations
+        :rtype: list
         """
-        function to get concept relations from API
-        input : concept_id
-        output: payload, relations
-        """
+
         self.payload['concept_ids_subject'] = self.concept_id
         results = self.session.post(f"{self.base_url}conceptset/relations/", self.payload)
         rv = results.json()
@@ -55,43 +66,49 @@ class GetFirstLayer():
         object_ids = {x['object']:1 for x in relations}
         my_id_list = [self.concept_id] + list(object_ids.keys())
         self.payload['concept_ids'] = ",".join(my_id_list)
-
-        return self.payload, self.relations
+        # self.payload
+        return  relations
     
     def annotate(self):
-        """
-        function to retreive concept annotations
+        """function to retreive concept annotations
+
+        :return: annotation of results
+        :rtype: dict
         """
         results = self.session.post(f"{self.base_url}conceptset/annotation/", self.payload)
         rv = results.json()
         return rv['result']['annotation']
     
     def annotating(self, concept):
-        """
-        function to retreive the names of concepts
+        """function to retreive the names of concepts from annotation
+
+        :param concept: concept for which name is to retreived
+        :type concept: str
+        :return: name of concept
+        :rtype: str
         """
         return self.annotation[concept]['name'][0]
     
     def json_todf(self):
-        """
-        function to convert results from json to pandas data frame
-        input: relations in json
-        output: pandas dataframe of relations
+        """function to convert results from json to pandas data frame
+
+        :return: pandas dataframe of relations
+        :rtype: DataFrame
         """
         # Convert the results from json to pandas df
-        self.df = pd.json_normalize(self.relations)
-        self.df = self.df[['subject', 'object', 'score', 'overlap', 'local_mi']]
-        self.df = self.df[self.df['score'] >= 1]
-        # self.df = self.df[self.df['overlap'] >= 100].reset_index(drop=True)
-        return self.df
+        df = pd.json_normalize(self.relations)
+        df = df[['subject', 'object', 'score', 'overlap', 'local_mi']]
+        df = df[df['score'] >= 1]
+        print(type(df))
+        return df
 
     def modify_df(self):
-        """
-        function to modify the relations dataframe by applying the
+        """function to modify the relations dataframe by applying the
         annotating function, sorting according to score, overlap and
-        weight, and filtering for food and metabolite relations only
-        input: relations dataframe
-        output: modified dataframe
+        weight, and filtering for metabolite relations only
+
+        :return: relations dataframe
+        :rtype: DataFrame
         """
         self.df['subject_annotated'] = self.df['subject'].apply(self.annotating)
         self.df['object_annotated'] = self.df['object'].apply(self.annotating)
@@ -104,9 +121,9 @@ class GetFirstLayer():
         return self.final_df
 
     def save_df(self):
+        """function to save the relations dataframe
         """
-        function to save the relations dataframe
-        """
+        
         return pd.DataFrame.to_csv(self.final_df, self.file_path, sep='\t')
         
 def main():

@@ -12,12 +12,18 @@ from node2vec import Node2Vec
 import config
 
 class EmbeddData():
-    """
-    class to represent embedding of the network
+    """class that represents embedding of the network
+
+    :return: an ebedding class
+    :rtype: None
     """
     def __init__(self, second_layer_path, embedded_path):
-        """ 
-        funtion to construct all necessary attributes for a embedding object
+        """funtion to construct all necessary attributes for a embedding object
+
+        :param second_layer_path: path to the second layer relations
+        :type second_layer_path: str
+        :param embedded_path: path to save the embeddings
+        :type embedded_path: str
         """
         self.data_path = second_layer_path
         self.graph = self.get_graph()
@@ -25,9 +31,11 @@ class EmbeddData():
         
         
     def get_graph(self):
-        '''
-        function to convert dataframe to graph
-        '''
+        """function to convert dataframe to graph
+
+        :return: a graph of the network
+        :rtype: nxgraph
+        """
         # read file
         df = pd.read_csv(self.data_path, sep='\t')
         return nx.from_pandas_edgelist(
@@ -40,9 +48,9 @@ class EmbeddData():
         )
 
     def get_embedding(self):
-        '''
-        function to perform embedding from the graph
-        '''
+        """function to perform embedding from the graph and save it
+        """
+       
         node2vec = Node2Vec(self.graph, dimensions=16, walk_length=80, num_walks=10, workers=4, weight_key='local_mi', p=0.5, q=2)
 
         # fit model
