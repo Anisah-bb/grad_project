@@ -1,7 +1,6 @@
 '''
 This script creates a graph of the networks and does the embedding of the network.
-usage
-python get_embedding.py -s second_layer 
+usage- python get_embedding.py -s second_layer
 '''
 
 import os
@@ -14,7 +13,7 @@ import config
 class EmbeddData():
     """class that represents embedding of the network
 
-    :return: an ebedding class
+    :return: an embedding class
     :rtype: None
     """
     def __init__(self, second_layer_path, embedded_path):
@@ -28,8 +27,7 @@ class EmbeddData():
         self.data_path = second_layer_path
         self.graph = self.get_graph()
         self.out_path = embedded_path
-        
-        
+
     def get_graph(self):
         """function to convert dataframe to graph
 
@@ -37,9 +35,9 @@ class EmbeddData():
         :rtype: nxgraph
         """
         # read file
-        df = pd.read_csv(self.data_path, sep='\t')
+        data = pd.read_csv(self.data_path, sep='\t')
         return nx.from_pandas_edgelist(
-            df,
+            data,
             source='subject',
             target='object',
             edge_attr='local_mi',
@@ -50,15 +48,22 @@ class EmbeddData():
     def get_embedding(self):
         """function to perform embedding from the graph and save it
         """
-       
-        node2vec = Node2Vec(self.graph, dimensions=16, walk_length=80, num_walks=10, workers=4, weight_key='local_mi', p=0.5, q=2)
-
+        node2vec = Node2Vec(self.graph,
+                            dimensions=16,
+                            walk_length=80,
+                            num_walks=10,
+                            workers=4,
+                            weight_key='local_mi',
+                            p=0.5,
+                            q=2)
         # fit model
         embedding = node2vec.fit()
-        EMBEDDING_FILEPATH = self.out_path
-        embedding.wv.save_word2vec_format(EMBEDDING_FILEPATH)
+        # embedding_filepath = self.out_path
+        embedding.wv.save_word2vec_format(self.out_path)
 
 def main():
+    """function to catch argparser arguments and run script
+    """
     argparser = ap.ArgumentParser(
                                 description= "Script that performs embedding")
     argparser.add_argument("--SECOND_LAYER", "-s", action="store", type=str,
@@ -72,8 +77,6 @@ def main():
         os.mkdir(result_dir)
         print("Result directory created")
     EmbeddData(result_dir+'/'+second_layer_path, f'{result_dir}/embedding.emb').get_embedding()
-    
-
 
 if __name__ == '__main__':
     main()
