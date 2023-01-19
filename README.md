@@ -27,6 +27,7 @@ KMAP is the proprietary knowledge base of TenWise. You can find more information
 
 
 
+
 ## Acknowledgements
 * * *
 I would like to thank the KCBBE (Kenniscentrum Biobased Economy - Hanze) and my supervisor Wyanad Alkema for his support and guidiance.
