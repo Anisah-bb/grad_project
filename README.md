@@ -1,4 +1,4 @@
-## Graduation Project
+# Graduation Project
 This repository contains the pipeline for the creation of a nework based AI model that can predict new biological concepts (use case here is diseases and nutrients/metabolites) relations from literature data.
 
 
@@ -8,7 +8,7 @@ that were obtained from automatic text mining of the scientific literature.
 KMAP is the proprietary knowledge base of TenWise. You can find more information on KMAP at https://apimlqv2.tenwiseservice.nl/html/
 
 
-# Requirements
+## Requirements
 * * *
 | Software                          | Version  |
 | --------------------------------- | :------: |
