@@ -75,10 +75,10 @@ class TrainModel():
                                 target='object', edge_attr='local_mi',
                                 edge_key='local_mi', create_using= None)
         embeddings = word2vec.KeyedVectors.load_word2vec_format(self.embedding_file)
-        # Convert embeddings to dataframe
-        embeddings_df = (pd.DataFrame([embeddings.get_vector(str(n))
-                                for n in graph.nodes()], index=graph.nodes))
-        return embeddings_df
+        return pd.DataFrame(
+            [embeddings.get_vector(str(n)) for n in graph.nodes()],
+            index=graph.nodes,
+        )
 
     def label_embedding_sets(self):
         """function to label embeddings for training
