@@ -7,6 +7,8 @@ The data for this project was obtained from KMAP (Knowledge Map). It is a databa
 that were obtained from automatic text mining of the scientific literature. 
 KMAP is the proprietary knowledge base of TenWise. You can find more information on KMAP at https://apimlqv2.tenwiseservice.nl/html/
 
+## Instructions
+Detailed instructions on how to recreate this study csn be found at https://bioinf.nl/~fabadmus/html/intro.html
 
 ## Requirements
 * * *
