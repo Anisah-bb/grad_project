@@ -49,7 +49,7 @@ class EmbeddData():
         """function to perform embedding from the graph and save it
         """
         node2vec = Node2Vec(self.graph,
-                            dimensions=100,
+                            dimensions=16,
                             walk_length=80,
                             num_walks=10,
                             workers=4,

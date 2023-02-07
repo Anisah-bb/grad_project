@@ -76,7 +76,7 @@ class GetFirstLayer():
         """
         results = self.session.post(f"{self.base_url}conceptset/annotation/", self.payload)
         results = results.json()
-        return results['result']['annotation']
+        return results ['result']['annotation']
 
     def annotating(self, concept):
         """function to retreive the names of concepts from annotation
@@ -97,7 +97,8 @@ class GetFirstLayer():
         # Convert the results from json to pandas df
         data = pd.json_normalize(self.relations)
         data = data[['subject', 'object', 'score', 'overlap', 'local_mi']]
-        return data[data['score'] >= 1]
+        # return data[data['score'] >= 1]
+        return data[(data['score'] >= 1) & (data['overlap'] >= 100)]
 
     def modify_df(self):
         """function to modify the relations dataframe by applying the
@@ -107,16 +108,16 @@ class GetFirstLayer():
         :return: relations dataframe
         :rtype: DataFrame
         """
+        self.data = self.data[self.data['object']
+                              .str.startswith(self.target_prefix)].reset_index(drop=True)
+        # print(self.annotation['TWMET_01238']['name'][0])
         self.data['subject_annotated'] = self.data['subject'].apply(self.annotating)
         self.data['object_annotated'] = self.data['object'].apply(self.annotating)
         self.data.sort_values('score', ascending=False, inplace=True)
         self.data.sort_values('overlap', ascending=False, inplace=True)
         self.data.sort_values('local_mi', ascending=False, inplace=True)
         self.data.reset_index(drop=True, inplace=True)
-        # prefix_objects = ('TWMET', 'TWFOOD')
-        self.final_df = self.data[self.data['object']
-                                .str.startswith(self.target_prefix)].reset_index(drop=True)
-        return self.final_df
+        return self.data
 
     def save_df(self):
         """function to save the relations dataframe
