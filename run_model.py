@@ -1,6 +1,6 @@
 '''
 This scripts performs classification and makes predictions
-usage- python run_model.py -s 'second_layer' -m 'model_data_path' -e 'embedding.emb' -a adaboost
+usage- python run_model.py -s 'second_layer' -m 'model_data_path' -e 'embedding.emb' -a adaboost -o out_file
 '''
 
 # import libraries
@@ -205,7 +205,7 @@ class TrainModel():
         metabs = predictions_df.sort_values('POS_prob', ascending=False)
         #metabs = predictions_df[['POS_prob', 'annotation']]
         pd.DataFrame.to_csv(metabs, self.prediction_path, sep='\t')
-        return predictions_df
+        # return predictions_df
 
 def main():
     """function to catch argparser arguments and run script
@@ -221,22 +221,25 @@ def main():
                              help="name of embeddings file")
     argparser.add_argument("--ALGORITHM", "-a",action="store",  type = str,
                             help="Algoritm for classification")
+    argparser.add_argument("--OUT_FILE", "-o",action="store",  type = str,
+                            help="Path to save results")
     parsed = argparser.parse_args()
     api_key = config.API_KEY
     second_layer_path = parsed.SECOND_LAYER
     model_data_path = parsed.MODEL_DATA
     embedding = parsed.EMBEDDINGS
     algorithm = parsed.ALGORITHM
-    result_dir = config.RESULTS_DIRECTORY
-    if not os.path.isdir(result_dir):
-        os.mkdir(result_dir)
-        print("Result directory created")
-    model = TrainModel(api_key, result_dir+'/'+second_layer_path,
-                       result_dir+'/'+embedding,
-                       result_dir+'/'+model_data_path,
-                       algorithm,  f'{result_dir}/results')
-    predictions = model.make_predictions()
-    print(predictions.head(20))
+    out_file = parsed.OUT_FILE
+    # result_dir = config.RESULTS_DIRECTORY
+    # if not os.path.isdir(result_dir):
+    #     os.mkdir(result_dir)
+    #     print("Result directory created")
+    TrainModel(api_key, second_layer_path,
+                       embedding,
+                       model_data_path,
+                       algorithm,  out_file)
+    # predictions = model.make_predictions()
+    # print(predictions.head(20))
 
 if __name__ == '__main__':
     main()

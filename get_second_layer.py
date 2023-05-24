@@ -151,18 +151,24 @@ def main():
                              help="name of control relations")
     argparser.add_argument("--SIZE", "-s", action="store", type=int, default=1,
                              help="Size of second layer")
+    argparser.add_argument("--LABEL_PATH", "-l", action="store", type=str, 
+                             help="Path to save lebel data")
+    argparser.add_argument("--SL_PATH", "-o", action="store", type=str, 
+                             help="Path to save second layer ")
     parsed = argparser.parse_args()
     api_key = config.API_KEY
     targ = parsed.TARGET_FILE
     cont = parsed.CONTROL_FILE
     size = parsed.SIZE
-    result_dir = config.RESULTS_DIRECTORY
-    if not os.path.isdir(result_dir):
-        os.mkdir(result_dir)
-        print("Result directory created")
-    GetSecondLayer(api_key, pos_df_path=result_dir+'/'+targ,
-                   neg_df_path=result_dir+'/'+cont,
-                   model_data_path =f'{result_dir}/model_data_path',
-                   download_path = f'{result_dir}/second_layer', size=size).save_second_layer()
+    label_path = parsed.LABEL_PATH
+    sl_path = parsed.SL_PATH
+    # result_dir = config.RESULTS_DIRECTORY
+    # if not os.path.isdir(result_dir):
+    #     os.mkdir(result_dir)
+    #     print("Result directory created")
+    GetSecondLayer(api_key, pos_df_path=targ,
+                   neg_df_path= cont,
+                   model_data_path =label_path,
+                   download_path = sl_path, size=size).save_second_layer()
 if __name__ == '__main__':
     main()

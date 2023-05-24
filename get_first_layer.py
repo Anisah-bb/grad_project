@@ -1,6 +1,6 @@
 '''
 This script gets the first layer of relations for a given concept_id.
-usage- python get_first_layer.py -p TWMET -i TWDIS_11098 -n 50
+usage- python get_first_layer.py -p TWMET -i TWDIS_11098 -n 50 -o 
 '''
 # import libraries
 import os
@@ -137,20 +137,23 @@ def main():
                              help="ID of the concept(s) of interest, separated by comma")
     argparser.add_argument("--TOP_N", "-n", action="store", type=int, default=0,
                              help="Number of relations to return")
+    argparser.add_argument("--OUT_FILE", "-o", action="store", type=str, default=0,
+                             help="Output file")
 
     parsed = argparser.parse_args()
     api_key = config.API_KEY
     concept_prefix = parsed.CONCEPT_PREFIX
     concept_id = parsed.CONCEPT_ID
     top_n = parsed.TOP_N
-    result_dir = config.RESULTS_DIRECTORY
-    if not os.path.isdir(result_dir):
-        os.mkdir(result_dir)
-        print("Result directory created")
+    out_file = parsed.OUT_FILE
+    # result_dir = config.RESULTS_DIRECTORY
+    # if not os.path.isdir(result_dir):
+    #     os.mkdir(result_dir)
+    #     print("Result directory created")
     GetFirstLayer(api_key,
                   concept_prefix,
                   concept_id,
                   top_n=top_n,
-                  download_path= result_dir+'/'+concept_id).save_df()
+                  download_path= out_file).save_df()
 if __name__ == '__main__':
     main()

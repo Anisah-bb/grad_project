@@ -1,6 +1,6 @@
 '''
 This script creates a graph of the networks and does the embedding of the network.
-usage- python get_embedding.py -s second_layer
+usage- python get_embedding.py -s second_layer -o out_file
 '''
 
 import os
@@ -67,16 +67,19 @@ def main():
     argparser = ap.ArgumentParser(
                                 description= "Script that performs embedding")
     argparser.add_argument("--SECOND_LAYER", "-s", action="store", type=str,
-                             help="Name ofsecond layer file")
-    argparser.add_argument("--RESULT_DIRECTORY", "-d", action="store", type=str,
+                             help="Name of second layer file")
+    argparser.add_argument("--OUT_FILE", "-o", action="store", type=str,
                              help="Path to save result")
+    # argparser.add_argument("--RESULT_DIRECTORY", "-d", action="store", type=str,
+    #                          help="Path to save result")
     parsed = argparser.parse_args()
     second_layer_path = parsed.SECOND_LAYER
-    result_dir = config.RESULTS_DIRECTORY
-    if not os.path.isdir(result_dir):
-        os.mkdir(result_dir)
-        print("Result directory created")
-    EmbeddData(result_dir+'/'+second_layer_path, f'{result_dir}/embedding.emb').get_embedding()
+    out_file = parsed.OUT_FILE
+    # result_dir = config.RESULTS_DIRECTORY
+    # if not os.path.isdir(result_dir):
+    #     os.mkdir(result_dir)
+    #     print("Result directory created")
+    EmbeddData(second_layer_path, out_file).get_embedding()
 
 if __name__ == '__main__':
     main()
