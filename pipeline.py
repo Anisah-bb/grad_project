@@ -1,27 +1,24 @@
 # sourcery skip: hoist-statement-from-loop
-import os
-import glob
-import re
-import pathlib
 import subprocess
 import config
 api_key = config.API_KEY
 basedir = "/homes/fabadmus/Internship/grad_project/"
-out_dir = basedir + "paper_output/"
-# script_dir =
+out_dir = basedir + "arthritis/"
+
+# parkinsons as target and arthritis as control
 target = 'TWDIS_06685'
-control = 'TWDIS_09536'
-# sl_size ='2'
-# for set in ['TWDIS_06685', 'TWDIS_09536']:
+control = 'TWDIS_09015'
+
+
 for interm in ['PATH', 'HGNC', 'TWMET']:
     for mysize in ['10', '25', '50']:
         for sl_size in ['2', '4']:
             target_out_file  = out_dir + interm + '_' + target  + '_' + mysize + '.flt.txt'
             control_out_file = out_dir + interm + '_' + control + '_' + mysize + '.flc.txt'
-            label_out_file = out_dir + target + '_' + control + '_'  + sl_size + '_' + 'labelfile' + '.txt'
-            sl_out_file = out_dir + target + '_' + control + '_'  + sl_size + '_' + 'slfile' + '.txt'
-            emb_out_file = out_dir + target + '_' + control + '_'  + mysize + '_' + sl_size + '_' + 'embedding' + '.emb'
-            pred_out_file = out_dir + target + '_' + control + '_'  + mysize + '_' + sl_size + '_' + 'predictions' + '.txt'
+            label_out_file = out_dir + interm + '_' + target + '_' + control + '_'  + sl_size + '_' + 'labelfile' + '.txt'
+            sl_out_file = out_dir + interm + '_' + target + '_' + control + '_'  + sl_size + '_' + 'slfile' + '.txt'
+            emb_out_file = out_dir + interm + '_' + target + '_' + control + '_'  + mysize + '_' + sl_size + '_' + 'embedding' + '.emb'
+            pred_out_file = out_dir + interm + '_' + target + '_' + control + '_'  + mysize + '_' + sl_size + '_' + 'predictions' + '.txt'
             
             
             # First we create the first layer for the target and the control

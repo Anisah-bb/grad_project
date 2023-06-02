@@ -147,11 +147,16 @@ class TrainModel():
         model1 = GridSearchCV(RandomForestClassifier(),
                               param_grid, verbose=1,n_jobs=-1,scoring='roc_auc')
         model1.fit(self.train_features,self.train_target)
-        print ('\n',model1.best_estimator_)
+        # print ('\n',model1.best_estimator_)
         pred1 = model1.predict(self.test_features)
         print(classification_report(self.test_target, pred1))
         print("RF Accuracy:",metrics.accuracy_score(self.test_target, pred1))
-        print(type(model1))
+
+        clsf_report = pd.DataFrame(classification_report(self.test_target, pred1, output_dict=True)).transpose()
+        report_path = self.prediction_path.strip('_predictions.txt') + '_report.txt'
+        clsf_report.to_csv(report_path , sep='\t', index= True)
+
+        # print(type(model1))
         return model1
     def do_adaboost(self):
         """function to train an AdaBoost classifier model
@@ -168,6 +173,10 @@ class TrainModel():
         pred2 = model2.predict(self.test_features)
         print(classification_report(self.test_target, pred2))
         print("AdaBoost Accuracy:",metrics.accuracy_score(self.test_target, pred2))
+        
+        clsf_report = pd.DataFrame(classification_report( self.test_target, pred2, output_dict=True)).transpose()
+        report_path = self.prediction_path.strip('_predictions.txt') + '_report.txt'
+        clsf_report.to_csv(report_path , sep='\t', index= True)
         return model2
 
     def make_predictions(self):
@@ -202,8 +211,12 @@ class TrainModel():
         # add ids to the dataframe
         predictions_df['annotation'] = annotated_ids
         predictions_df = predictions_df.sort_values('POS_prob', ascending=False)
+        
+        setting = self.prediction_path.strip('_predictions.txt').lstrip('/homes/fabadmus/Internship/grad_project/paper_output/')
+        predictions_df['setting'] = setting
+        
         metabs = predictions_df.sort_values('POS_prob', ascending=False)
-        #metabs = predictions_df[['POS_prob', 'annotation']]
+        # metabs = predictions_df[['POS_prob', 'annotation']]
         pd.DataFrame.to_csv(metabs, self.prediction_path, sep='\t')
         # return predictions_df
 
@@ -237,7 +250,7 @@ def main():
     TrainModel(api_key, second_layer_path,
                        embedding,
                        model_data_path,
-                       algorithm,  out_file)
+                       algorithm, out_file)
     # predictions = model.make_predictions()
     # print(predictions.head(20))
 

@@ -1,6 +1,6 @@
 '''
 This script gets the second layer of relations from the first layer relations
-usage- python get_second_layer.py  -t TWDIS_06685 -c TWDIS_09536 -s 2
+usage- python get_second_layer.py  -t TWDIS_06685 -c TWDIS_09536 -s 2 -o out_file
 '''
 import os
 import argparse as ap

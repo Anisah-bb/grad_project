@@ -1,6 +1,6 @@
 '''
 This script gets the first layer of relations for a given concept_id.
-usage- python get_first_layer.py -p TWMET -i TWDIS_11098 -n 50 -o 
+usage- python get_first_layer.py -p TWMET -i TWDIS_11098 -n 50 -o out_file
 '''
 # import libraries
 import os
