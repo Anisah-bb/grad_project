@@ -188,26 +188,32 @@ class TrainModel():
         # make predictions on the unknown
         val_features = self.embeddings_df.iloc[:,:-1]
         predictions = self.model.predict(val_features)
+        
         # get the prediction probabilities of the unknown
         val_proba = self.model.predict_proba(val_features)
+        
         # convert predictions and actual values to dataframe
         val_proba_df = pd.DataFrame(val_proba, index=val_features.index,
                                         columns=['NEG_prob', 'POS_prob'])
         val_proba_df['predictions'] = predictions
+        
         # combine actual and predicted values
         val_proba_df.index.names = ['ID']
         self.embeddings_df.index.names = ['ID']
         predictions_df = pd.merge(self.embeddings_df['SET'],val_proba_df, how = 'left', on = 'ID')
+        
         # annotate predictions
         ids = list(predictions_df.index)
         self.payload['concept_ids'] = ",".join(ids)
         results = self.session.post(f"{self.base_url}conceptset/annotation/", self.payload)
         results = results.json()
         annotation = results['result']['annotation']
+        
         # get ids
         annotated_ids = []
         for i in ids:
             annotated_ids.extend(annotation[i]['name'])
+            
         # add ids to the dataframe
         predictions_df['annotation'] = annotated_ids
         predictions_df = predictions_df.sort_values('POS_prob', ascending=False)

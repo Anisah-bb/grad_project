@@ -16,7 +16,7 @@ class EmbeddData():
     :return: an embedding class
     :rtype: None
     """
-    def __init__(self, second_layer_path, embedded_path):
+    def __init__(self, second_layer_path, out_file):
         """funtion to construct all necessary attributes for a embedding object
 
         :param second_layer_path: path to the second layer relations
@@ -26,7 +26,7 @@ class EmbeddData():
         """
         self.data_path = second_layer_path
         self.graph = self.get_graph()
-        self.out_path = embedded_path
+        self.out_path = out_file
 
     def get_graph(self):
         """function to convert dataframe to graph
@@ -49,7 +49,7 @@ class EmbeddData():
         """function to perform embedding from the graph and save it
         """
         node2vec = Node2Vec(self.graph,
-                            dimensions=16,
+                            dimensions=100,
                             walk_length=80,
                             num_walks=10,
                             workers=4,

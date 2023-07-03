@@ -3,11 +3,11 @@ import subprocess
 import config
 api_key = config.API_KEY
 basedir = "/homes/fabadmus/Internship/grad_project/"
-out_dir = basedir + "arthritis/"
+out_dir = basedir + "paper_output/"
 
 # parkinsons as target and arthritis as control
 target = 'TWDIS_06685'
-control = 'TWDIS_09015'
+control = 'TWDIS_09536'
 
 
 for interm in ['PATH', 'HGNC', 'TWMET']:
@@ -18,7 +18,7 @@ for interm in ['PATH', 'HGNC', 'TWMET']:
             label_out_file = out_dir + interm + '_' + target + '_' + control + '_'  + sl_size + '_' + 'labelfile' + '.txt'
             sl_out_file = out_dir + interm + '_' + target + '_' + control + '_'  + sl_size + '_' + 'slfile' + '.txt'
             emb_out_file = out_dir + interm + '_' + target + '_' + control + '_'  + mysize + '_' + sl_size + '_' + 'embedding' + '.emb'
-            pred_out_file = out_dir + interm + '_' + target + '_' + control + '_'  + mysize + '_' + sl_size + '_' + 'predictions' + '.txt'
+            pred_out_file = out_dir + interm + '_' + mysize + '_' + sl_size + '_' + 'predictions' + '.txt'
             
             
             # First we create the first layer for the target and the control
