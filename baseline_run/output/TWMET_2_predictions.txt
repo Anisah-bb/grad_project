@@ -1,0 +1,296 @@
+ID	SET	NEG_prob	POS_prob	predictions	annotation	setting
+TWMET_00166	POS	0.02	0.98	POS	haloperidol	line_run/output/TWMET_2
+TWMET_00012	POS	0.04	0.96	POS	dopamine	line_run/output/TWMET_2
+TWMET_01184	POS	0.04	0.96	POS	sulpiride	line_run/output/TWMET_2
+TWMET_00058	POS	0.04	0.96	POS	GABA	line_run/output/TWMET_2
+TWMET_00014	POS	0.04	0.96	POS	serotonin	line_run/output/TWMET_2
+TWMET_00848	POS	0.06	0.94	POS	catechol	line_run/output/TWMET_2
+TWMET_00170	POS	0.07	0.93	POS	dopa	line_run/output/TWMET_2
+TWMET_00322	POS	0.08	0.92	POS	4-amino-butyrate	line_run/output/TWMET_2
+TWMET_00805	POS	0.1	0.9	POS	aminobutyric acid	line_run/output/TWMET_2
+TWMET_00099	POS	0.12	0.88	POS	cocaine	line_run/output/TWMET_2
+TWMET_00059	POS	0.14	0.86	POS	histamine	line_run/output/TWMET_2
+TWMET_00091	POS	0.15	0.85	POS	nicotine	line_run/output/TWMET_2
+TWMET_00190	POS	0.15	0.85	POS	quinone	line_run/output/TWMET_2
+TWMET_00112	POS	0.16	0.84	POS	pyridine	line_run/output/TWMET_2
+TWMET_00044	POS	0.18	0.82	POS	cysteine	line_run/output/TWMET_2
+TWMET_00188	POS	0.18	0.82	POS	purine	line_run/output/TWMET_2
+TWMET_00553	POS	0.2	0.8	POS	tyramine	line_run/output/TWMET_2
+TWMET_00045	POS	0.2	0.8	POS	glycine	line_run/output/TWMET_2
+TWMET_00555	POS	0.2	0.8	POS	ubiquinone	line_run/output/TWMET_2
+TWMET_00155	POS	0.2	0.8	POS	cannabinoid	line_run/output/TWMET_2
+TWMET_00054	POS	0.23	0.77	POS	tryptophan	line_run/output/TWMET_2
+TWMET_00041	POS	0.23	0.77	POS	serine	line_run/output/TWMET_2
+TWMET_00382	POS	0.26	0.74	POS	cytochrome	line_run/output/TWMET_2
+TWMET_01152	POS	0.26	0.74	POS	retinoic acid	line_run/output/TWMET_2
+TWMET_00224	UNK	0.26	0.74	POS	chlorpheniramine	line_run/output/TWMET_2
+TWMET_00096	UNK	0.26	0.74	POS	benzene	line_run/output/TWMET_2
+TWMET_00037	UNK	0.27	0.73	POS	glutamate	line_run/output/TWMET_2
+TWMET_01100	UNK	0.27	0.73	POS	octopamine	line_run/output/TWMET_2
+TWMET_00114	POS	0.27	0.73	POS	benzodiazepine	line_run/output/TWMET_2
+TWMET_00804	POS	0.29	0.71	POS	aminobutyric acid	line_run/output/TWMET_2
+TWMET_00189	POS	0.29	0.71	POS	pyrimidine	line_run/output/TWMET_2
+TWMET_00093	UNK	0.3	0.7	POS	choline	line_run/output/TWMET_2
+TWMET_00027	UNK	0.3	0.7	POS	acetylcholine	line_run/output/TWMET_2
+TWMET_00991	UNK	0.3	0.7	POS	hydroquinone	line_run/output/TWMET_2
+TWMET_00552	UNK	0.3	0.7	POS	tryptamine	line_run/output/TWMET_2
+TWMET_00408	POS	0.31	0.69	POS	ganglioside	line_run/output/TWMET_2
+TWMET_00085	POS	0.31	0.69	POS	proline	line_run/output/TWMET_2
+TWMET_00046	POS	0.32	0.68	POS	H2O2	line_run/output/TWMET_2
+TWMET_00101	UNK	0.33	0.67	POS	imidazole	line_run/output/TWMET_2
+TWMET_00754	UNK	0.33	0.67	POS	4-methylcatechol	line_run/output/TWMET_2
+TWMET_00869	UNK	0.35	0.65	POS	cotinine	line_run/output/TWMET_2
+TWMET_00090	POS	0.35	0.65	POS	threonine	line_run/output/TWMET_2
+TWMET_00554	UNK	0.35	0.65	POS	ubiquinol	line_run/output/TWMET_2
+TWMET_01141	UNK	0.37	0.63	POS	pyrazole	line_run/output/TWMET_2
+TWMET_00772	UNK	0.39	0.61	POS	5-methoxytryptamine	line_run/output/TWMET_2
+TWMET_00006	UNK	0.42	0.58	POS	tyrosine	line_run/output/TWMET_2
+TWMET_00048	POS	0.42	0.58	POS	propionate	line_run/output/TWMET_2
+TWMET_00176	UNK	0.42	0.58	POS	n-acetylcysteine	line_run/output/TWMET_2
+TWMET_00067	UNK	0.42	0.58	POS	morphine	line_run/output/TWMET_2
+TWMET_00574	POS	0.43	0.57	POS	3,4-dihydroxyphenylacetic acid	line_run/output/TWMET_2
+TWMET_01004	UNK	0.43	0.57	POS	inosine	line_run/output/TWMET_2
+TWMET_00717	UNK	0.44	0.56	POS	3-methoxytyramine	line_run/output/TWMET_2
+TWMET_00819	UNK	0.44	0.56	POS	atropine	line_run/output/TWMET_2
+TWMET_00585	POS	0.44	0.56	POS	kynurenine	line_run/output/TWMET_2
+TWMET_00173	UNK	0.45	0.55	POS	melatonin	line_run/output/TWMET_2
+TWMET_00584	UNK	0.45	0.55	POS	kynurenic acid	line_run/output/TWMET_2
+TWMET_00100	UNK	0.45	0.55	POS	phenylalanine	line_run/output/TWMET_2
+TWMET_00105	UNK	0.45	0.55	POS	glutamine	line_run/output/TWMET_2
+TWMET_00575	UNK	0.47	0.53	POS	3-hydroxykynurenine	line_run/output/TWMET_2
+TWMET_00435	UNK	0.48	0.52	POS	glycosphingolipid	line_run/output/TWMET_2
+TWMET_00507	UNK	0.49	0.51	POS	phosphorylase	line_run/output/TWMET_2
+TWMET_00941	UNK	0.49	0.51	POS	genistein	line_run/output/TWMET_2
+TWMET_00872	UNK	0.49	0.51	POS	curcumin	line_run/output/TWMET_2
+TWMET_00020	UNK	0.5	0.5	NEG	norepinephrine	line_run/output/TWMET_2
+TWMET_00201	UNK	0.5	0.5	NEG	butyrate	line_run/output/TWMET_2
+TWMET_00034	UNK	0.5	0.5	NEG	aspartate	line_run/output/TWMET_2
+TWMET_00997	UNK	0.51	0.49	NEG	hypoxanthine	line_run/output/TWMET_2
+TWMET_00191	UNK	0.51	0.49	NEG	retinoid	line_run/output/TWMET_2
+TWMET_00083	POS	0.52	0.48	NEG	NMDA	line_run/output/TWMET_2
+TWMET_00266	UNK	0.54	0.46	NEG	theophylline	line_run/output/TWMET_2
+TWMET_00485	NEG	0.54	0.46	NEG	myo-inositol	line_run/output/TWMET_2
+TWMET_01200	UNK	0.54	0.46	NEG	theobromine	line_run/output/TWMET_2
+TWMET_00392	UNK	0.55	0.45	NEG	diphosphatidylglycerol	line_run/output/TWMET_2
+TWMET_01173	UNK	0.56	0.44	NEG	spermidine	line_run/output/TWMET_2
+TWMET_00272	UNK	0.56	0.44	NEG	vitamin B12	line_run/output/TWMET_2
+TWMET_00134	UNK	0.56	0.44	NEG	caffeine	line_run/output/TWMET_2
+TWMET_00829	UNK	0.56	0.44	NEG	bisdemethoxycurcumin	line_run/output/TWMET_2
+TWMET_00467	UNK	0.56	0.44	NEG	malate	line_run/output/TWMET_2
+TWMET_00010	UNK	0.57	0.43	NEG	glutathione	line_run/output/TWMET_2
+TWMET_00068	UNK	0.57	0.43	NEG	methionine	line_run/output/TWMET_2
+TWMET_01043	UNK	0.57	0.43	NEG	methionine sulfoximine	line_run/output/TWMET_2
+TWMET_00118	UNK	0.57	0.43	NEG	propranolol	line_run/output/TWMET_2
+TWMET_00051	UNK	0.57	0.43	NEG	nitrate	line_run/output/TWMET_2
+TWMET_00167	UNK	0.57	0.43	NEG	homocysteine	line_run/output/TWMET_2
+TWMET_00035	UNK	0.57	0.43	NEG	adenosine	line_run/output/TWMET_2
+TWMET_00104	UNK	0.57	0.43	NEG	alanine	line_run/output/TWMET_2
+TWMET_00228	UNK	0.58	0.42	NEG	beta-alanine	line_run/output/TWMET_2
+TWMET_00062	UNK	0.58	0.42	NEG	histidine	line_run/output/TWMET_2
+TWMET_00077	UNK	0.58	0.42	NEG	folate	line_run/output/TWMET_2
+TWMET_00061	UNK	0.58	0.42	NEG	catecholamine	line_run/output/TWMET_2
+TWMET_00214	UNK	0.58	0.42	NEG	phosphatidylethanolamine	line_run/output/TWMET_2
+TWMET_00275	NEG	0.59	0.41	NEG	xanthine	line_run/output/TWMET_2
+TWMET_00478	NEG	0.59	0.41	NEG	methylenetetrahydrofolate	line_run/output/TWMET_2
+TWMET_00202	NEG	0.6	0.4	NEG	citrate	line_run/output/TWMET_2
+TWMET_00225	UNK	0.6	0.4	NEG	ascorbate	line_run/output/TWMET_2
+TWMET_00023	UNK	0.6	0.4	NEG	malondialdehyde	line_run/output/TWMET_2
+TWMET_00353	UNK	0.61	0.39	NEG	amylopectin	line_run/output/TWMET_2
+TWMET_00205	UNK	0.61	0.39	NEG	ethanolamine	line_run/output/TWMET_2
+TWMET_00069	UNK	0.62	0.38	NEG	vitamin C	line_run/output/TWMET_2
+TWMET_00073	UNK	0.62	0.38	NEG	glycogen	line_run/output/TWMET_2
+TWMET_01151	UNK	0.62	0.38	NEG	resveratrol	line_run/output/TWMET_2
+TWMET_00081	UNK	0.62	0.38	NEG	inositol	line_run/output/TWMET_2
+TWMET_01000	UNK	0.63	0.37	NEG	indole-3-carbinol	line_run/output/TWMET_2
+TWMET_00383	UNK	0.64	0.36	NEG	dehydroascorbate	line_run/output/TWMET_2
+TWMET_00116	UNK	0.64	0.36	NEG	rapamycin	line_run/output/TWMET_2
+TWMET_01051	NEG	0.64	0.36	NEG	methylglyoxal	line_run/output/TWMET_2
+TWMET_00125	UNK	0.65	0.35	NEG	phosphatidylcholine	line_run/output/TWMET_2
+TWMET_00194	UNK	0.65	0.35	NEG	succinate	line_run/output/TWMET_2
+TWMET_00129	UNK	0.65	0.35	NEG	isoproterenol	line_run/output/TWMET_2
+TWMET_00165	UNK	0.66	0.34	NEG	guanosine	line_run/output/TWMET_2
+TWMET_01214	UNK	0.66	0.34	NEG	triethyl citrate	line_run/output/TWMET_2
+TWMET_01235	NEG	0.67	0.33	NEG	isoleucine	line_run/output/TWMET_2
+TWMET_00080	UNK	0.67	0.33	NEG	nitrite	line_run/output/TWMET_2
+TWMET_00492	UNK	0.67	0.33	NEG	oxaloacetate	line_run/output/TWMET_2
+TWMET_00015	NEG	0.67	0.33	NEG	lactate	line_run/output/TWMET_2
+TWMET_00147	UNK	0.67	0.33	NEG	ribose	line_run/output/TWMET_2
+TWMET_00039	UNK	0.68	0.32	NEG	AMP	line_run/output/TWMET_2
+TWMET_00149	NEG	0.68	0.32	NEG	vancomycin	line_run/output/TWMET_2
+TWMET_00824	NEG	0.68	0.32	NEG	berberine	line_run/output/TWMET_2
+TWMET_00019	UNK	0.69	0.31	NEG	estradiol	line_run/output/TWMET_2
+TWMET_00195	UNK	0.69	0.31	NEG	tocopherol	line_run/output/TWMET_2
+TWMET_00219	UNK	0.69	0.31	NEG	uracil	line_run/output/TWMET_2
+TWMET_00354	UNK	0.69	0.31	NEG	amylose	line_run/output/TWMET_2
+TWMET_00720	UNK	0.7	0.3	NEG	3-methyladenine	line_run/output/TWMET_2
+TWMET_00799	UNK	0.7	0.3	NEG	allopurinol	line_run/output/TWMET_2
+TWMET_00121	UNK	0.7	0.3	NEG	uric acid	line_run/output/TWMET_2
+TWMET_00184	UNK	0.71	0.29	NEG	polyphenol	line_run/output/TWMET_2
+TWMET_00141	POS	0.72	0.28	NEG	indole	line_run/output/TWMET_2
+TWMET_00183	UNK	0.72	0.28	NEG	phosphoinositide	line_run/output/TWMET_2
+TWMET_00178	UNK	0.72	0.28	NEG	vitamin B3	line_run/output/TWMET_2
+TWMET_00577	UNK	0.72	0.28	NEG	indole-3-acetic acid	line_run/output/TWMET_2
+TWMET_00049	UNK	0.72	0.28	NEG	leucine	line_run/output/TWMET_2
+TWMET_00026	UNK	0.72	0.28	NEG	progesterone	line_run/output/TWMET_2
+TWMET_00376	UNK	0.72	0.28	NEG	citrulline	line_run/output/TWMET_2
+TWMET_00240	UNK	0.73	0.27	NEG	glycan	line_run/output/TWMET_2
+TWMET_00079	UNK	0.73	0.27	NEG	adenine	line_run/output/TWMET_2
+TWMET_00086	NEG	0.73	0.27	NEG	pyruvate	line_run/output/TWMET_2
+TWMET_00065	UNK	0.73	0.27	NEG	ammonia	line_run/output/TWMET_2
+TWMET_00850	UNK	0.73	0.27	NEG	chenodeoxycholic acid	line_run/output/TWMET_2
+TWMET_00078	UNK	0.73	0.27	NEG	NADPH	line_run/output/TWMET_2
+TWMET_00008	UNK	0.74	0.26	NEG	estrogen	line_run/output/TWMET_2
+TWMET_00211	UNK	0.74	0.26	NEG	lutein	line_run/output/TWMET_2
+TWMET_00856	UNK	0.74	0.26	NEG	cholic acid	line_run/output/TWMET_2
+TWMET_00057	UNK	0.74	0.26	NEG	phosphatidylinositol	line_run/output/TWMET_2
+TWMET_00870	NEG	0.74	0.26	NEG	creatinine	line_run/output/TWMET_2
+TWMET_00245	NEG	0.74	0.26	NEG	isoniazid	line_run/output/TWMET_2
+TWMET_00025	NEG	0.75	0.25	NEG	polysaccharide	line_run/output/TWMET_2
+TWMET_00263	UNK	0.75	0.25	NEG	vitamin B2	line_run/output/TWMET_2
+TWMET_00844	NEG	0.75	0.25	NEG	carotene	line_run/output/TWMET_2
+TWMET_00148	NEG	0.75	0.25	NEG	thyroxine	line_run/output/TWMET_2
+TWMET_00009	UNK	0.75	0.25	NEG	acetate	line_run/output/TWMET_2
+TWMET_00156	UNK	0.76	0.24	NEG	carotenoid	line_run/output/TWMET_2
+TWMET_00005	NEG	0.76	0.24	NEG	steroid	line_run/output/TWMET_2
+TWMET_00316	UNK	0.76	0.24	NEG	3-phosphoadenylylsulfate	line_run/output/TWMET_2
+TWMET_00400	UNK	0.76	0.24	NEG	fumarate	line_run/output/TWMET_2
+TWMET_01025	NEG	0.76	0.24	NEG	levothyroxine	line_run/output/TWMET_2
+TWMET_00076	UNK	0.76	0.24	NEG	NAD	line_run/output/TWMET_2
+TWMET_01015	UNK	0.76	0.24	NEG	isonicotinic acid	line_run/output/TWMET_2
+TWMET_00564	NEG	0.76	0.24	NEG	valine	line_run/output/TWMET_2
+TWMET_00836	UNK	0.76	0.24	NEG	calciferol	line_run/output/TWMET_2
+TWMET_00013	UNK	0.76	0.24	NEG	CO2	line_run/output/TWMET_2
+TWMET_00043	UNK	0.77	0.23	NEG	lysine	line_run/output/TWMET_2
+TWMET_00040	NEG	0.77	0.23	NEG	arginine	line_run/output/TWMET_2
+TWMET_00192	NEG	0.77	0.23	NEG	rifampicin	line_run/output/TWMET_2
+TWMET_00127	NEG	0.77	0.23	NEG	bicarbonate	line_run/output/TWMET_2
+TWMET_00909	UNK	0.78	0.22	NEG	epicatechin	line_run/output/TWMET_2
+TWMET_00084	UNK	0.78	0.22	NEG	creatine	line_run/output/TWMET_2
+TWMET_00132	NEG	0.79	0.21	NEG	bile-acid	line_run/output/TWMET_2
+TWMET_00231	UNK	0.8	0.2	NEG	dihydroxyacetone	line_run/output/TWMET_2
+TWMET_00001	NEG	0.8	0.2	NEG	glucose	line_run/output/TWMET_2
+TWMET_00441	NEG	0.8	0.2	NEG	hemoglobin	line_run/output/TWMET_2
+TWMET_00237	UNK	0.8	0.2	NEG	fructan	line_run/output/TWMET_2
+TWMET_01208	UNK	0.8	0.2	NEG	tocopherol acetate	line_run/output/TWMET_2
+TWMET_00071	UNK	0.81	0.19	NEG	cyclophosphamide	line_run/output/TWMET_2
+TWMET_00179	NEG	0.81	0.19	NEG	nifedipine	line_run/output/TWMET_2
+TWMET_00146	UNK	0.82	0.18	NEG	proteoglycan	line_run/output/TWMET_2
+TWMET_00016	NEG	0.82	0.18	NEG	corticosteroid	line_run/output/TWMET_2
+TWMET_00193	NEG	0.82	0.18	NEG	sialic acid	line_run/output/TWMET_2
+TWMET_00168	UNK	0.82	0.18	NEG	hyaluronic acid	line_run/output/TWMET_2
+TWMET_00411	UNK	0.82	0.18	NEG	glucagon	line_run/output/TWMET_2
+TWMET_00007	UNK	0.82	0.18	NEG	retinal	line_run/output/TWMET_2
+TWMET_00344	NEG	0.83	0.17	NEG	adenylylsulfate	line_run/output/TWMET_2
+TWMET_00450	UNK	0.83	0.17	NEG	hypotaurine	line_run/output/TWMET_2
+TWMET_00047	UNK	0.83	0.17	NEG	methanol	line_run/output/TWMET_2
+TWMET_00152	NEG	0.83	0.17	NEG	aminoglycoside	line_run/output/TWMET_2
+TWMET_00064	NEG	0.83	0.17	NEG	vasopressin	line_run/output/TWMET_2
+TWMET_00264	NEG	0.83	0.17	NEG	short-chain-fatty-acid	line_run/output/TWMET_2
+TWMET_00197	UNK	0.83	0.17	NEG	vincristine	line_run/output/TWMET_2
+TWMET_00897	UNK	0.83	0.17	NEG	diltiazem	line_run/output/TWMET_2
+TWMET_00246	UNK	0.83	0.17	NEG	lactulose	line_run/output/TWMET_2
+TWMET_00098	NEG	0.83	0.17	NEG	starch	line_run/output/TWMET_2
+TWMET_01157	POS	0.84	0.16	NEG	rotenone	line_run/output/TWMET_2
+TWMET_00024	NEG	0.84	0.16	NEG	urea	line_run/output/TWMET_2
+TWMET_00124	UNK	0.85	0.15	NEG	neuropeptide	line_run/output/TWMET_2
+TWMET_00931	UNK	0.85	0.15	NEG	flavone	line_run/output/TWMET_2
+TWMET_00119	UNK	0.85	0.15	NEG	oligosaccharide	line_run/output/TWMET_2
+TWMET_00547	UNK	0.85	0.15	NEG	thiamine pyrophosphate	line_run/output/TWMET_2
+TWMET_00254	NEG	0.86	0.14	NEG	NADP	line_run/output/TWMET_2
+TWMET_00840	UNK	0.86	0.14	NEG	canrenone	line_run/output/TWMET_2
+TWMET_01153	NEG	0.86	0.14	NEG	retinol	line_run/output/TWMET_2
+TWMET_00145	NEG	0.86	0.14	NEG	prednisone	line_run/output/TWMET_2
+TWMET_00230	UNK	0.86	0.14	NEG	ceramide	line_run/output/TWMET_2
+TWMET_00221	NEG	0.87	0.13	NEG	vitamin K	line_run/output/TWMET_2
+TWMET_00544	NEG	0.88	0.12	NEG	taurine	line_run/output/TWMET_2
+TWMET_00910	UNK	0.88	0.12	NEG	ergosterol	line_run/output/TWMET_2
+TWMET_00917	UNK	0.88	0.12	NEG	ethanol	line_run/output/TWMET_2
+TWMET_00115	NEG	0.88	0.12	NEG	methicillin	line_run/output/TWMET_2
+TWMET_00103	UNK	0.88	0.12	NEG	indomethacin	line_run/output/TWMET_2
+TWMET_00036	POS	0.88	0.12	NEG	LPS	line_run/output/TWMET_2
+TWMET_00164	NEG	0.89	0.11	NEG	glycosaminoglycan	line_run/output/TWMET_2
+TWMET_00410	UNK	0.89	0.11	NEG	globin	line_run/output/TWMET_2
+TWMET_00273	UNK	0.89	0.11	NEG	vitamin K1	line_run/output/TWMET_2
+TWMET_00533	UNK	0.89	0.11	NEG	sphingolipid	line_run/output/TWMET_2
+TWMET_00534	NEG	0.89	0.11	NEG	sphingomyelin	line_run/output/TWMET_2
+TWMET_01175	NEG	0.89	0.11	NEG	spironolactone	line_run/output/TWMET_2
+TWMET_00935	UNK	0.89	0.11	NEG	fructose 1,6-bisphosphate	line_run/output/TWMET_2
+TWMET_00163	NEG	0.89	0.11	NEG	gentamicin	line_run/output/TWMET_2
+TWMET_00403	UNK	0.89	0.11	NEG	galactosamine	line_run/output/TWMET_2
+TWMET_00056	UNK	0.89	0.11	NEG	vitamin D	line_run/output/TWMET_2
+TWMET_00847	NEG	0.89	0.11	NEG	catechin	line_run/output/TWMET_2
+TWMET_00088	UNK	0.9	0.1	NEG	flavonoid	line_run/output/TWMET_2
+TWMET_00182	NEG	0.9	0.1	NEG	phenylephrine	line_run/output/TWMET_2
+TWMET_00368	NEG	0.9	0.1	NEG	carnitine	line_run/output/TWMET_2
+TWMET_00120	UNK	0.9	0.1	NEG	tetracycline	line_run/output/TWMET_2
+TWMET_00424	NEG	0.91	0.09	NEG	glutamyl	line_run/output/TWMET_2
+TWMET_00157	NEG	0.91	0.09	NEG	ciprofloxacin	line_run/output/TWMET_2
+TWMET_00940	NEG	0.91	0.09	NEG	gallic acid	line_run/output/TWMET_2
+TWMET_00107	NEG	0.91	0.09	NEG	bilirubin	line_run/output/TWMET_2
+TWMET_00209	UNK	0.91	0.09	NEG	hexane	line_run/output/TWMET_2
+TWMET_00185	NEG	0.91	0.09	NEG	prednisolone	line_run/output/TWMET_2
+TWMET_00206	NEG	0.91	0.09	NEG	ethyl acetate	line_run/output/TWMET_2
+TWMET_00063	NEG	0.92	0.08	NEG	ACTH	line_run/output/TWMET_2
+TWMET_00021	UNK	0.92	0.08	NEG	arachidonic acid	line_run/output/TWMET_2
+TWMET_00249	UNK	0.92	0.08	NEG	long-chain-fatty-acid	line_run/output/TWMET_2
+TWMET_00905	NEG	0.92	0.08	NEG	doxycycline	line_run/output/TWMET_2
+TWMET_00060	NEG	0.92	0.08	NEG	vitamin D3	line_run/output/TWMET_2
+TWMET_01031	NEG	0.92	0.08	NEG	lipoic acid	line_run/output/TWMET_2
+TWMET_01201	NEG	0.92	0.08	NEG	thiamine	line_run/output/TWMET_2
+TWMET_00504	NEG	0.92	0.08	NEG	phosphoenolpyruvate	line_run/output/TWMET_2
+TWMET_00269	NEG	0.92	0.08	NEG	trimethoprim	line_run/output/TWMET_2
+TWMET_00508	UNK	0.92	0.08	NEG	phylloquinone	line_run/output/TWMET_2
+TWMET_00447	NEG	0.93	0.07	NEG	hydroperoxide	line_run/output/TWMET_2
+TWMET_00268	UNK	0.93	0.07	NEG	trehalose	line_run/output/TWMET_2
+TWMET_00465	UNK	0.93	0.07	NEG	lipoamide	line_run/output/TWMET_2
+TWMET_00536	NEG	0.94	0.06	NEG	sphingosine	line_run/output/TWMET_2
+TWMET_00171	NEG	0.94	0.06	NEG	mannitol	line_run/output/TWMET_2
+TWMET_00233	NEG	0.94	0.06	NEG	diacylglycerol	line_run/output/TWMET_2
+TWMET_00050	NEG	0.94	0.06	NEG	sucrose	line_run/output/TWMET_2
+TWMET_00988	NEG	0.94	0.06	NEG	hydrochlorothiazide	line_run/output/TWMET_2
+TWMET_00802	UNK	0.94	0.06	NEG	amiloride	line_run/output/TWMET_2
+TWMET_00217	UNK	0.94	0.06	NEG	quercetin	line_run/output/TWMET_2
+TWMET_00003	NEG	0.94	0.06	NEG	cholesterol	line_run/output/TWMET_2
+TWMET_00500	UNK	0.94	0.06	NEG	phosphatidic acid	line_run/output/TWMET_2
+TWMET_00033	NEG	0.94	0.06	NEG	androgen	line_run/output/TWMET_2
+TWMET_00128	NEG	0.95	0.05	NEG	fructose	line_run/output/TWMET_2
+TWMET_00031	NEG	0.95	0.05	NEG	aspirin	line_run/output/TWMET_2
+TWMET_00017	UNK	0.95	0.05	NEG	phospholipid	line_run/output/TWMET_2
+TWMET_00066	NEG	0.95	0.05	NEG	glycerol	line_run/output/TWMET_2
+TWMET_00154	NEG	0.95	0.05	NEG	amphotericin-b	line_run/output/TWMET_2
+TWMET_00002	UNK	0.95	0.05	NEG	lipid	line_run/output/TWMET_2
+TWMET_00151	NEG	0.95	0.05	NEG	acetone	line_run/output/TWMET_2
+TWMET_00032	NEG	0.95	0.05	NEG	cortisol	line_run/output/TWMET_2
+TWMET_00868	NEG	0.95	0.05	NEG	cortisone	line_run/output/TWMET_2
+TWMET_01158	UNK	0.95	0.05	NEG	rutin	line_run/output/TWMET_2
+TWMET_00030	NEG	0.96	0.04	NEG	heparin	line_run/output/TWMET_2
+TWMET_00018	NEG	0.96	0.04	NEG	prostaglandin	line_run/output/TWMET_2
+TWMET_00140	NEG	0.96	0.04	NEG	erythropoietin	line_run/output/TWMET_2
+TWMET_01030	NEG	0.96	0.04	NEG	linolenic acid	line_run/output/TWMET_2
+TWMET_00867	UNK	0.96	0.04	NEG	corticosterone	line_run/output/TWMET_2
+TWMET_00028	NEG	0.96	0.04	NEG	testosterone	line_run/output/TWMET_2
+TWMET_00451	NEG	0.96	0.04	NEG	inulin	line_run/output/TWMET_2
+TWMET_00386	NEG	0.96	0.04	NEG	DHA	line_run/output/TWMET_2
+TWMET_00218	NEG	0.96	0.04	NEG	sorbitol	line_run/output/TWMET_2
+TWMET_00011	NEG	0.96	0.04	NEG	triglyceride	line_run/output/TWMET_2
+TWMET_00130	NEG	0.96	0.04	NEG	streptozotocin	line_run/output/TWMET_2
+TWMET_00087	NEG	0.96	0.04	NEG	linoleic acid	line_run/output/TWMET_2
+TWMET_00004	UNK	0.96	0.04	NEG	fatty acid	line_run/output/TWMET_2
+TWMET_00785	NEG	0.97	0.03	NEG	acarbose	line_run/output/TWMET_2
+TWMET_00265	NEG	0.97	0.03	NEG	stearic acid	line_run/output/TWMET_2
+TWMET_00131	NEG	0.97	0.03	NEG	glycoside	line_run/output/TWMET_2
+TWMET_00126	NEG	0.97	0.03	NEG	palmitate	line_run/output/TWMET_2
+TWMET_00276	UNK	0.97	0.03	NEG	xylitol	line_run/output/TWMET_2
+TWMET_00550	NEG	0.98	0.02	NEG	triacylglycerol	line_run/output/TWMET_2
+TWMET_00243	NEG	0.98	0.02	NEG	inulin	line_run/output/TWMET_2
+TWMET_00153	NEG	0.98	0.02	NEG	amoxicillin	line_run/output/TWMET_2
+TWMET_00893	NEG	0.98	0.02	NEG	digoxin	line_run/output/TWMET_2
+TWMET_00144	UNK	0.99	0.01	NEG	polyunsaturated-fatty-acid	line_run/output/TWMET_2
+TWMET_00174	NEG	0.99	0.01	NEG	metformin	line_run/output/TWMET_2
+TWMET_00113	NEG	0.99	0.01	NEG	aldosterone	line_run/output/TWMET_2
+TWMET_00074	UNK	0.99	0.01	NEG	penicillin	line_run/output/TWMET_2
+TWMET_00497	NEG	0.99	0.01	NEG	palmitic acid	line_run/output/TWMET_2
+TWMET_00095	NEG	0.99	0.01	NEG	lipoprotein-cholesterol	line_run/output/TWMET_2
+TWMET_00181	NEG	1.0	0.0	NEG	oleate	line_run/output/TWMET_2
+TWMET_00022	NEG	1.0	0.0	NEG	glucocorticoid	line_run/output/TWMET_2
+TWMET_00253	NEG	1.0	0.0	NEG	metronidazole	line_run/output/TWMET_2

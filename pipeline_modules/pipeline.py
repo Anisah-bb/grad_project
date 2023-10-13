@@ -3,7 +3,7 @@ import subprocess
 import config
 api_key = config.API_KEY
 basedir = "/homes/fabadmus/Internship/grad_project/"
-out_dir = basedir + "paper_output/"
+out_dir = basedir + "paper_output_roc/"
 
 # parkinsons as target and arthritis as control
 target = 'TWDIS_06685'

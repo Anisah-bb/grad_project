@@ -1,0 +1,97 @@
+	subject	object	score	overlap	local_mi	subject_annotated	object_annotated
+0	TWDIS_06685	TWMET_00170	107	12308	1316956	parkinson's disease	dopa
+1	TWDIS_06685	TWMET_00012	30	19084	572520	parkinson's disease	dopamine
+2	TWDIS_06685	TWMET_01157	59	1580	93220	parkinson's disease	rotenone
+3	TWDIS_06685	TWMET_00006	5	4720	23600	parkinson's disease	tyrosine
+4	TWDIS_06685	TWMET_00848	13	953	12389	parkinson's disease	catechol
+5	TWDIS_06685	TWMET_00049	5	1495	7475	parkinson's disease	leucine
+6	TWDIS_06685	TWMET_00037	3	2144	6432	parkinson's disease	glutamate
+7	TWDIS_06685	TWMET_00014	3	1745	5235	parkinson's disease	serotonin
+8	TWDIS_06685	TWMET_00574	18	237	4266	parkinson's disease	3,4-dihydroxyphenylacetic acid
+9	TWDIS_06685	TWMET_00083	4	913	3652	parkinson's disease	NMDA
+10	TWDIS_06685	TWMET_00010	2	1655	3310	parkinson's disease	glutathione
+11	TWDIS_06685	TWMET_00805	3	879	2637	parkinson's disease	aminobutyric acid
+12	TWDIS_06685	TWMET_00058	3	832	2496	parkinson's disease	GABA
+13	TWDIS_06685	TWMET_00002	1	2475	2475	parkinson's disease	lipid
+14	TWDIS_06685	TWMET_00322	3	779	2337	parkinson's disease	4-amino-butyrate
+15	TWDIS_06685	TWMET_00061	3	749	2247	parkinson's disease	catecholamine
+16	TWDIS_06685	TWMET_00035	2	1110	2220	parkinson's disease	adenosine
+17	TWDIS_06685	TWMET_00166	5	411	2055	parkinson's disease	haloperidol
+18	TWDIS_06685	TWMET_00020	2	1017	2034	parkinson's disease	norepinephrine
+19	TWDIS_06685	TWMET_00027	2	821	1642	parkinson's disease	acetylcholine
+20	TWDIS_06685	TWMET_00134	3	377	1131	parkinson's disease	caffeine
+21	TWDIS_06685	TWMET_00173	3	364	1092	parkinson's disease	melatonin
+22	TWDIS_06685	TWMET_00036	1	1041	1041	parkinson's disease	LPS
+23	TWDIS_06685	TWMET_00167	3	318	954	parkinson's disease	homocysteine
+24	TWDIS_06685	TWMET_00155	3	308	924	parkinson's disease	cannabinoid
+25	TWDIS_06685	TWMET_00091	2	409	818	parkinson's disease	nicotine
+26	TWDIS_06685	TWMET_00872	3	258	774	parkinson's disease	curcumin
+27	TWDIS_06685	TWMET_00184	2	378	756	parkinson's disease	polyphenol
+28	TWDIS_06685	TWMET_00076	2	375	750	parkinson's disease	NAD
+29	TWDIS_06685	TWMET_00382	1	744	744	parkinson's disease	cytochrome
+30	TWDIS_06685	TWMET_00190	2	363	726	parkinson's disease	quinone
+31	TWDIS_06685	TWMET_00034	1	721	721	parkinson's disease	aspartate
+32	TWDIS_06685	TWMET_00044	1	720	720	parkinson's disease	cysteine
+33	TWDIS_06685	TWMET_00046	1	708	708	parkinson's disease	H2O2
+34	TWDIS_06685	TWMET_00041	1	696	696	parkinson's disease	serine
+35	TWDIS_06685	TWMET_00004	1	678	678	parkinson's disease	fatty acid
+36	TWDIS_06685	TWMET_00116	2	327	654	parkinson's disease	rapamycin
+37	TWDIS_06685	TWMET_00093	2	315	630	parkinson's disease	choline
+38	TWDIS_06685	TWMET_00804	2	304	608	parkinson's disease	aminobutyric acid
+39	TWDIS_06685	TWMET_00121	2	299	598	parkinson's disease	uric acid
+40	TWDIS_06685	TWMET_00007	1	590	590	parkinson's disease	retinal
+41	TWDIS_06685	TWMET_00178	2	245	490	parkinson's disease	vitamin B3
+42	TWDIS_06685	TWMET_00008	1	430	430	parkinson's disease	estrogen
+43	TWDIS_06685	TWMET_00585	4	106	424	parkinson's disease	kynurenine
+44	TWDIS_06685	TWMET_00553	4	102	408	parkinson's disease	tyramine
+45	TWDIS_06685	TWMET_00088	1	405	405	parkinson's disease	flavonoid
+46	TWDIS_06685	TWMET_01184	4	100	400	parkinson's disease	sulpiride
+47	TWDIS_06685	TWMET_00039	1	394	394	parkinson's disease	AMP
+48	TWDIS_06685	TWMET_00023	1	372	372	parkinson's disease	malondialdehyde
+49	TWDIS_06685	TWMET_00555	3	123	369	parkinson's disease	ubiquinone
+50	TWDIS_06685	TWMET_01151	2	179	358	parkinson's disease	resveratrol
+51	TWDIS_06685	TWMET_00090	1	336	336	parkinson's disease	threonine
+52	TWDIS_06685	TWMET_00017	1	329	329	parkinson's disease	phospholipid
+53	TWDIS_06685	TWMET_00069	1	325	325	parkinson's disease	vitamin C
+54	TWDIS_06685	TWMET_00176	2	156	312	parkinson's disease	n-acetylcysteine
+55	TWDIS_06685	TWMET_00078	1	306	306	parkinson's disease	NADPH
+56	TWDIS_06685	TWMET_00124	1	300	300	parkinson's disease	neuropeptide
+57	TWDIS_06685	TWMET_00057	1	285	285	parkinson's disease	phosphatidylinositol
+58	TWDIS_06685	TWMET_00054	1	282	282	parkinson's disease	tryptophan
+59	TWDIS_06685	TWMET_00533	2	140	280	parkinson's disease	sphingolipid
+60	TWDIS_06685	TWMET_00056	1	266	266	parkinson's disease	vitamin D
+61	TWDIS_06685	TWMET_00230	2	128	256	parkinson's disease	ceramide
+62	TWDIS_06685	TWMET_00408	2	127	254	parkinson's disease	ganglioside
+63	TWDIS_06685	TWMET_00104	1	249	249	parkinson's disease	alanine
+64	TWDIS_06685	TWMET_00084	1	242	242	parkinson's disease	creatine
+65	TWDIS_06685	TWMET_00079	1	220	220	parkinson's disease	adenine
+66	TWDIS_06685	TWMET_00068	1	216	216	parkinson's disease	methionine
+67	TWDIS_06685	TWMET_00073	1	215	215	parkinson's disease	glycogen
+68	TWDIS_06685	TWMET_00043	1	205	205	parkinson's disease	lysine
+69	TWDIS_06685	TWMET_00099	1	201	201	parkinson's disease	cocaine
+70	TWDIS_06685	TWMET_00077	1	195	195	parkinson's disease	folate
+71	TWDIS_06685	TWMET_00112	1	192	192	parkinson's disease	pyridine
+72	TWDIS_06685	TWMET_00045	1	185	185	parkinson's disease	glycine
+73	TWDIS_06685	TWMET_00080	1	184	184	parkinson's disease	nitrite
+74	TWDIS_06685	TWMET_00144	1	181	181	parkinson's disease	polyunsaturated-fatty-acid
+75	TWDIS_06685	TWMET_00114	1	179	179	parkinson's disease	benzodiazepine
+76	TWDIS_06685	TWMET_00411	1	177	177	parkinson's disease	glucagon
+77	TWDIS_06685	TWMET_00059	1	176	176	parkinson's disease	histamine
+78	TWDIS_06685	TWMET_00147	1	173	173	parkinson's disease	ribose
+79	TWDIS_06685	TWMET_00105	1	171	171	parkinson's disease	glutamine
+80	TWDIS_06685	TWMET_00081	1	157	157	parkinson's disease	inositol
+81	TWDIS_06685	TWMET_00195	1	155	155	parkinson's disease	tocopherol
+82	TWDIS_06685	TWMET_00100	1	149	149	parkinson's disease	phenylalanine
+83	TWDIS_06685	TWMET_00085	1	147	147	parkinson's disease	proline
+84	TWDIS_06685	TWMET_00217	1	139	139	parkinson's disease	quercetin
+85	TWDIS_06685	TWMET_01152	1	137	137	parkinson's disease	retinoic acid
+86	TWDIS_06685	TWMET_00188	1	124	124	parkinson's disease	purine
+87	TWDIS_06685	TWMET_00165	1	124	124	parkinson's disease	guanosine
+88	TWDIS_06685	TWMET_00021	1	123	123	parkinson's disease	arachidonic acid
+89	TWDIS_06685	TWMET_00272	1	118	118	parkinson's disease	vitamin B12
+90	TWDIS_06685	TWMET_00183	1	111	111	parkinson's disease	phosphoinositide
+91	TWDIS_06685	TWMET_00048	1	110	110	parkinson's disease	propionate
+92	TWDIS_06685	TWMET_00141	1	110	110	parkinson's disease	indole
+93	TWDIS_06685	TWMET_00201	1	110	110	parkinson's disease	butyrate
+94	TWDIS_06685	TWMET_00194	1	108	108	parkinson's disease	succinate
+95	TWDIS_06685	TWMET_00189	1	105	105	parkinson's disease	pyrimidine

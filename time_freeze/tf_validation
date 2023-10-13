@@ -1,0 +1,225 @@
+	ID	SET	POS_prob	annotation	tf_17	tf_23
+0	TWMET_00805	POS	0.95	aminobutyric acid	yes	yes
+1	TWMET_00804	POS	0.95	aminobutyric acid	yes	yes
+2	TWMET_00322	POS	0.95	4-amino-butyrate	yes	yes
+3	TWMET_00058	POS	0.94	GABA	yes	yes
+4	TWMET_00166	POS	0.93	haloperidol	yes	yes
+5	TWMET_00574	POS	0.91	3,4-dihydroxyphenylacetic acid	yes	yes
+6	TWMET_00012	POS	0.91	dopamine	yes	yes
+7	TWMET_01184	UNK	0.9	sulpiride	no	yes
+8	TWMET_00848	POS	0.87	catechol	yes	yes
+9	TWMET_00099	POS	0.85	cocaine	yes	yes
+10	TWMET_00155	POS	0.84	cannabinoid	yes	yes
+11	TWMET_00717	UNK	0.84	3-methoxytyramine	no	no
+12	TWMET_00170	POS	0.81	dopa	yes	yes
+13	TWMET_00014	UNK	0.78	serotonin	yes	yes
+14	TWMET_00112	POS	0.78	pyridine	yes	yes
+15	TWMET_00093	POS	0.78	choline	yes	yes
+16	TWMET_00184	POS	0.77	polyphenol	yes	yes
+17	TWMET_00054	POS	0.76	tryptophan	yes	yes
+18	TWMET_00173	POS	0.76	melatonin	yes	yes
+19	TWMET_00991	UNK	0.76	hydroquinone	no	no
+20	TWMET_00190	POS	0.76	quinone	yes	yes
+21	TWMET_00847	UNK	0.76	catechin	no	no
+22	TWMET_00754	UNK	0.74	4-methylcatechol	no	no
+23	TWMET_01141	UNK	0.74	pyrazole	no	no
+24	TWMET_00114	POS	0.73	benzodiazepine	yes	yes
+25	TWMET_00096	UNK	0.73	benzene	no	no
+26	TWMET_01157	POS	0.73	rotenone	yes	yes
+27	TWMET_00772	UNK	0.72	5-methoxytryptamine	no	no
+28	TWMET_00134	POS	0.71	caffeine	yes	yes
+29	TWMET_00036	POS	0.69	LPS	yes	yes
+30	TWMET_00555	UNK	0.68	ubiquinone	yes	yes
+31	TWMET_00061	UNK	0.66	catecholamine	yes	yes
+32	TWMET_00027	UNK	0.66	acetylcholine	yes	yes
+33	TWMET_00020	UNK	0.62	norepinephrine	yes	yes
+34	TWMET_00585	UNK	0.61	kynurenine	no	yes
+35	TWMET_01200	UNK	0.6	theobromine	no	no
+36	TWMET_00118	UNK	0.59	propranolol	no	no
+37	TWMET_00083	POS	0.57	NMDA	yes	yes
+38	TWMET_00091	UNK	0.56	nicotine	yes	yes
+39	TWMET_00819	UNK	0.55	atropine	no	no
+40	TWMET_00006	UNK	0.54	tyrosine	yes	yes
+41	TWMET_00403	UNK	0.52	galactosamine	no	no
+42	TWMET_00045	POS	0.49	glycine	yes	yes
+43	TWMET_00214	UNK	0.49	phosphatidylethanolamine	no	no
+44	TWMET_00554	UNK	0.49	ubiquinol	no	no
+45	TWMET_00392	UNK	0.49	diphosphatidylglycerol	no	no
+46	TWMET_01158	UNK	0.48	rutin	no	no
+47	TWMET_00101	UNK	0.47	imidazole	no	no
+48	TWMET_00067	UNK	0.47	morphine	no	no
+49	TWMET_00088	NEG	0.46	flavonoid	yes	yes
+50	TWMET_00869	UNK	0.46	cotinine	no	no
+51	TWMET_00217	UNK	0.46	quercetin	no	yes
+52	TWMET_00125	UNK	0.46	phosphatidylcholine	no	no
+53	TWMET_00205	UNK	0.44	ethanolamine	no	no
+54	TWMET_00017	UNK	0.44	phospholipid	yes	yes
+55	TWMET_00081	NEG	0.43	inositol	yes	yes
+56	TWMET_00129	UNK	0.43	isoproterenol	no	no
+57	TWMET_00062	UNK	0.41	histidine	no	no
+58	TWMET_01208	UNK	0.4	tocopherol acetate	no	no
+59	TWMET_00037	UNK	0.4	glutamate	yes	yes
+60	TWMET_00266	UNK	0.4	theophylline	no	no
+61	TWMET_00047	UNK	0.4	methanol	no	no
+62	TWMET_00183	UNK	0.39	phosphoinositide	no	yes
+63	TWMET_01173	UNK	0.38	spermidine	no	no
+64	TWMET_00485	UNK	0.37	myo-inositol	no	no
+65	TWMET_00041	UNK	0.37	serine	yes	yes
+66	TWMET_00090	UNK	0.36	threonine	yes	yes
+67	TWMET_00057	UNK	0.35	phosphatidylinositol	yes	yes
+68	TWMET_00197	UNK	0.35	vincristine	no	no
+69	TWMET_00333	UNK	0.35	acetaldehyde	no	no
+70	TWMET_00941	UNK	0.34	genistein	no	no
+71	TWMET_00044	UNK	0.34	cysteine	yes	yes
+72	TWMET_00068	UNK	0.33	methionine	yes	yes
+73	TWMET_01043	UNK	0.33	methionine sulfoximine	no	no
+74	TWMET_00195	UNK	0.33	tocopherol	yes	yes
+75	TWMET_00103	UNK	0.32	indomethacin	no	no
+76	TWMET_00104	UNK	0.32	alanine	yes	yes
+77	TWMET_00034	UNK	0.32	aspartate	yes	yes
+78	TWMET_01025	UNK	0.32	levothyroxine	no	no
+79	TWMET_00039	UNK	0.32	AMP	yes	yes
+80	TWMET_00026	UNK	0.32	progesterone	no	no
+81	TWMET_00035	UNK	0.31	adenosine	yes	yes
+82	TWMET_01051	NEG	0.31	methylglyoxal	no	no
+83	TWMET_00148	NEG	0.31	thyroxine	no	no
+84	TWMET_00008	UNK	0.3	estrogen	yes	yes
+85	TWMET_00084	UNK	0.3	creatine	yes	yes
+86	TWMET_00074	UNK	0.3	penicillin	no	no
+87	TWMET_00467	UNK	0.3	malate	no	no
+88	TWMET_00353	UNK	0.29	amylopectin	no	no
+89	TWMET_00497	UNK	0.29	palmitic acid	no	no
+90	TWMET_00194	UNK	0.28	succinate	no	yes
+91	TWMET_00564	UNK	0.28	valine	no	no
+92	TWMET_00019	UNK	0.28	estradiol	no	no
+93	TWMET_00040	NEG	0.28	arginine	no	no
+94	TWMET_00145	NEG	0.28	prednisone	no	no
+95	TWMET_00126	NEG	0.28	palmitate	no	no
+96	TWMET_00382	UNK	0.27	cytochrome	yes	yes
+97	TWMET_00018	UNK	0.27	prostaglandin	yes	no
+98	TWMET_00065	UNK	0.26	ammonia	no	no
+99	TWMET_00182	NEG	0.26	phenylephrine	no	no
+100	TWMET_00069	UNK	0.26	vitamin C	yes	yes
+101	TWMET_00228	UNK	0.25	beta-alanine	no	no
+102	TWMET_00071	NEG	0.25	cyclophosphamide	no	no
+103	TWMET_00204	UNK	0.25	doxorubicin	no	no
+104	TWMET_00225	UNK	0.25	ascorbate	no	no
+105	TWMET_00478	UNK	0.24	methylenetetrahydrofolate	no	no
+106	TWMET_00263	UNK	0.24	vitamin B2	no	no
+107	TWMET_01004	UNK	0.24	inosine	no	no
+108	TWMET_00124	UNK	0.24	neuropeptide	yes	yes
+109	TWMET_00149	UNK	0.23	vancomycin	no	no
+110	TWMET_01175	UNK	0.23	spironolactone	no	no
+111	TWMET_01235	UNK	0.23	isoleucine	no	no
+112	TWMET_00492	UNK	0.23	oxaloacetate	no	no
+113	TWMET_00354	UNK	0.23	amylose	no	no
+114	TWMET_00167	UNK	0.22	homocysteine	yes	yes
+115	TWMET_00049	UNK	0.22	leucine	yes	yes
+116	TWMET_01233	UNK	0.22	sodium dodecyl sulfate	yes	no
+117	TWMET_00233	UNK	0.22	diacylglycerol	no	no
+118	TWMET_00246	UNK	0.22	lactulose	no	no
+119	TWMET_00441	NEG	0.21	hemoglobin	no	no
+120	TWMET_00410	UNK	0.21	globin	no	no
+121	TWMET_00010	UNK	0.2	glutathione	yes	yes
+122	TWMET_00107	NEG	0.2	bilirubin	no	no
+123	TWMET_00176	UNK	0.2	n-acetylcysteine	yes	yes
+124	TWMET_00030	NEG	0.19	heparin	no	no
+125	TWMET_00507	UNK	0.19	phosphorylase	no	no
+126	TWMET_00844	UNK	0.19	carotene	no	no
+127	TWMET_00206	UNK	0.19	ethyl acetate	no	no
+128	TWMET_00013	UNK	0.19	CO2	no	no
+129	TWMET_00164	UNK	0.19	glycosaminoglycan	no	no
+130	TWMET_00105	NEG	0.18	glutamine	yes	yes
+131	TWMET_00799	UNK	0.18	allopurinol	no	no
+132	TWMET_00191	UNK	0.18	retinoid	no	no
+133	TWMET_00015	UNK	0.18	lactate	yes	no
+134	TWMET_00140	NEG	0.18	erythropoietin	no	no
+135	TWMET_01153	NEG	0.18	retinol	no	no
+136	TWMET_00023	UNK	0.18	malondialdehyde	yes	yes
+137	TWMET_00056	NEG	0.17	vitamin D	yes	yes
+138	TWMET_00376	UNK	0.17	citrulline	no	no
+139	TWMET_00369	UNK	0.17	cellulose	no	no
+140	TWMET_00115	NEG	0.17	methicillin	no	no
+141	TWMET_00383	UNK	0.17	dehydroascorbate	no	no
+142	TWMET_00046	UNK	0.16	H2O2	yes	yes
+143	TWMET_00910	UNK	0.16	ergosterol	no	no
+144	TWMET_00154	NEG	0.16	amphotericin-b	no	no
+145	TWMET_00007	UNK	0.16	retinal	yes	yes
+146	TWMET_00175	UNK	0.16	myristate	no	no
+147	TWMET_00185	NEG	0.16	prednisolone	no	no
+148	TWMET_00171	NEG	0.16	mannitol	no	no
+149	TWMET_00031	NEG	0.16	aspirin	no	no
+150	TWMET_00917	NEG	0.16	ethanol	no	no
+151	TWMET_00720	UNK	0.16	3-methyladenine	no	no
+152	TWMET_00077	UNK	0.16	folate	yes	yes
+153	TWMET_00086	NEG	0.15	pyruvate	no	no
+154	TWMET_00802	UNK	0.15	amiloride	no	no
+155	TWMET_00051	NEG	0.15	nitrate	no	no
+156	TWMET_00275	UNK	0.15	xanthine	no	no
+157	TWMET_00785	NEG	0.14	acarbose	no	no
+158	TWMET_01201	NEG	0.14	thiamine	no	no
+159	TWMET_00268	UNK	0.14	trehalose	no	no
+160	TWMET_00178	UNK	0.14	vitamin B3	yes	yes
+161	TWMET_00100	NEG	0.14	phenylalanine	no	yes
+162	TWMET_00016	NEG	0.14	corticosteroid	no	no
+163	TWMET_00021	NEG	0.14	arachidonic acid	no	yes
+164	TWMET_00272	NEG	0.14	vitamin B12	no	yes
+165	TWMET_01214	UNK	0.14	triethyl citrate	no	no
+166	TWMET_00004	UNK	0.13	fatty acid	yes	yes
+167	TWMET_00897	UNK	0.13	diltiazem	no	no
+168	TWMET_00547	UNK	0.13	thiamine pyrophosphate	no	no
+169	TWMET_00060	UNK	0.13	vitamin D3	no	no
+170	TWMET_00231	UNK	0.13	dihydroxyacetone	no	no
+171	TWMET_00867	UNK	0.13	corticosterone	no	no
+172	TWMET_00368	NEG	0.12	carnitine	no	no
+173	TWMET_00465	UNK	0.12	lipoamide	no	no
+174	TWMET_00001	UNK	0.12	glucose	yes	no
+175	TWMET_00078	UNK	0.12	NADPH	yes	yes
+176	TWMET_00116	NEG	0.12	rapamycin	yes	yes
+177	TWMET_00179	NEG	0.12	nifedipine	no	no
+178	TWMET_00043	NEG	0.11	lysine	yes	yes
+179	TWMET_00092	NEG	0.11	EDTA	no	no
+180	TWMET_00276	UNK	0.11	xylitol	no	no
+181	TWMET_00076	UNK	0.11	NAD	yes	yes
+182	TWMET_00856	UNK	0.1	cholic acid	no	no
+183	TWMET_00002	UNK	0.1	lipid	yes	yes
+184	TWMET_00202	NEG	0.1	citrate	no	no
+185	TWMET_00009	NEG	0.1	acetate	no	no
+186	TWMET_00218	NEG	0.1	sorbitol	no	no
+187	TWMET_00128	NEG	0.1	fructose	no	no
+188	TWMET_00935	UNK	0.1	fructose 1,6-bisphosphate	no	no
+189	TWMET_00254	UNK	0.1	NADP	no	no
+190	TWMET_00080	NEG	0.09	nitrite	yes	yes
+191	TWMET_00249	UNK	0.09	long-chain-fatty-acid	no	no
+192	TWMET_00066	NEG	0.08	glycerol	no	no
+193	TWMET_00386	UNK	0.08	DHA	no	no
+194	TWMET_00113	NEG	0.08	aldosterone	no	no
+195	TWMET_00850	UNK	0.08	chenodeoxycholic acid	no	no
+196	TWMET_00063	NEG	0.07	ACTH	no	no
+197	TWMET_00005	NEG	0.07	steroid	no	no
+198	TWMET_00022	NEG	0.07	glucocorticoid	no	no
+199	TWMET_00064	NEG	0.07	vasopressin	no	no
+200	TWMET_00988	NEG	0.07	hydrochlorothiazide	no	no
+201	TWMET_00079	NEG	0.06	adenine	yes	yes
+202	TWMET_00073	NEG	0.06	glycogen	yes	yes
+203	TWMET_00132	NEG	0.06	bile-acid	no	no
+204	TWMET_01030	UNK	0.06	linolenic acid	no	no
+205	TWMET_00127	NEG	0.06	bicarbonate	no	no
+206	TWMET_00144	NEG	0.05	polyunsaturated-fatty-acid	yes	yes
+207	TWMET_01031	NEG	0.05	lipoic acid	no	no
+208	TWMET_00087	NEG	0.05	linoleic acid	no	no
+209	TWMET_00050	NEG	0.05	sucrose	no	no
+210	TWMET_00130	NEG	0.05	streptozotocin	no	no
+211	TWMET_00870	NEG	0.05	creatinine	no	no
+212	TWMET_00024	NEG	0.05	urea	no	no
+213	TWMET_00121	NEG	0.05	uric acid	yes	yes
+214	TWMET_00411	NEG	0.04	glucagon	no	yes
+215	TWMET_00098	NEG	0.04	starch	no	no
+216	TWMET_00550	NEG	0.03	triacylglycerol	no	no
+217	TWMET_00028	NEG	0.02	testosterone	no	no
+218	TWMET_00174	NEG	0.02	metformin	no	no
+219	TWMET_00011	NEG	0.02	triglyceride	no	no
+220	TWMET_00032	NEG	0.01	cortisol	no	no
+221	TWMET_00033	NEG	0.01	androgen	no	no
+222	TWMET_00095	NEG	0.01	lipoprotein-cholesterol	no	no
+223	TWMET_00003	NEG	0.0	cholesterol	no	no

@@ -1,0 +1,225 @@
+ID	SET	NEG_prob	POS_prob	predictions	annotation	setting
+TWMET_00805	POS	0.05	0.95	POS	aminobutyric acid	ze/results_13
+TWMET_00804	POS	0.05	0.95	POS	aminobutyric acid	ze/results_13
+TWMET_00322	POS	0.05	0.95	POS	4-amino-butyrate	ze/results_13
+TWMET_00058	POS	0.06	0.94	POS	GABA	ze/results_13
+TWMET_00166	POS	0.07	0.93	POS	haloperidol	ze/results_13
+TWMET_00574	POS	0.09	0.91	POS	3,4-dihydroxyphenylacetic acid	ze/results_13
+TWMET_00012	POS	0.09	0.91	POS	dopamine	ze/results_13
+TWMET_01184	UNK	0.1	0.9	POS	sulpiride	ze/results_13
+TWMET_00848	POS	0.13	0.87	POS	catechol	ze/results_13
+TWMET_00099	POS	0.15	0.85	POS	cocaine	ze/results_13
+TWMET_00155	POS	0.16	0.84	POS	cannabinoid	ze/results_13
+TWMET_00717	UNK	0.16	0.84	POS	3-methoxytyramine	ze/results_13
+TWMET_00170	POS	0.19	0.81	POS	dopa	ze/results_13
+TWMET_00014	UNK	0.22	0.78	POS	serotonin	ze/results_13
+TWMET_00112	POS	0.22	0.78	POS	pyridine	ze/results_13
+TWMET_00093	POS	0.22	0.78	POS	choline	ze/results_13
+TWMET_00184	POS	0.23	0.77	POS	polyphenol	ze/results_13
+TWMET_00054	POS	0.24	0.76	POS	tryptophan	ze/results_13
+TWMET_00173	POS	0.24	0.76	POS	melatonin	ze/results_13
+TWMET_00991	UNK	0.24	0.76	POS	hydroquinone	ze/results_13
+TWMET_00190	POS	0.24	0.76	POS	quinone	ze/results_13
+TWMET_00847	UNK	0.24	0.76	POS	catechin	ze/results_13
+TWMET_00754	UNK	0.26	0.74	POS	4-methylcatechol	ze/results_13
+TWMET_01141	UNK	0.26	0.74	POS	pyrazole	ze/results_13
+TWMET_00114	POS	0.27	0.73	POS	benzodiazepine	ze/results_13
+TWMET_00096	UNK	0.27	0.73	POS	benzene	ze/results_13
+TWMET_01157	POS	0.27	0.73	POS	rotenone	ze/results_13
+TWMET_00772	UNK	0.28	0.72	POS	5-methoxytryptamine	ze/results_13
+TWMET_00134	POS	0.29	0.71	POS	caffeine	ze/results_13
+TWMET_00036	POS	0.31	0.69	POS	LPS	ze/results_13
+TWMET_00555	UNK	0.32	0.68	POS	ubiquinone	ze/results_13
+TWMET_00061	UNK	0.34	0.66	POS	catecholamine	ze/results_13
+TWMET_00027	UNK	0.34	0.66	POS	acetylcholine	ze/results_13
+TWMET_00020	UNK	0.38	0.62	POS	norepinephrine	ze/results_13
+TWMET_00585	UNK	0.39	0.61	POS	kynurenine	ze/results_13
+TWMET_01200	UNK	0.4	0.6	POS	theobromine	ze/results_13
+TWMET_00118	UNK	0.41	0.59	POS	propranolol	ze/results_13
+TWMET_00083	POS	0.43	0.57	POS	NMDA	ze/results_13
+TWMET_00091	UNK	0.44	0.56	POS	nicotine	ze/results_13
+TWMET_00819	UNK	0.45	0.55	POS	atropine	ze/results_13
+TWMET_00006	UNK	0.46	0.54	POS	tyrosine	ze/results_13
+TWMET_00403	UNK	0.48	0.52	POS	galactosamine	ze/results_13
+TWMET_00045	POS	0.51	0.49	NEG	glycine	ze/results_13
+TWMET_00214	UNK	0.51	0.49	NEG	phosphatidylethanolamine	ze/results_13
+TWMET_00554	UNK	0.51	0.49	NEG	ubiquinol	ze/results_13
+TWMET_00392	UNK	0.51	0.49	NEG	diphosphatidylglycerol	ze/results_13
+TWMET_01158	UNK	0.52	0.48	NEG	rutin	ze/results_13
+TWMET_00101	UNK	0.53	0.47	NEG	imidazole	ze/results_13
+TWMET_00067	UNK	0.53	0.47	NEG	morphine	ze/results_13
+TWMET_00088	NEG	0.54	0.46	NEG	flavonoid	ze/results_13
+TWMET_00869	UNK	0.54	0.46	NEG	cotinine	ze/results_13
+TWMET_00217	UNK	0.54	0.46	NEG	quercetin	ze/results_13
+TWMET_00125	UNK	0.54	0.46	NEG	phosphatidylcholine	ze/results_13
+TWMET_00205	UNK	0.56	0.44	NEG	ethanolamine	ze/results_13
+TWMET_00017	UNK	0.56	0.44	NEG	phospholipid	ze/results_13
+TWMET_00081	NEG	0.57	0.43	NEG	inositol	ze/results_13
+TWMET_00129	UNK	0.57	0.43	NEG	isoproterenol	ze/results_13
+TWMET_00062	UNK	0.59	0.41	NEG	histidine	ze/results_13
+TWMET_01208	UNK	0.6	0.4	NEG	tocopherol acetate	ze/results_13
+TWMET_00037	UNK	0.6	0.4	NEG	glutamate	ze/results_13
+TWMET_00266	UNK	0.6	0.4	NEG	theophylline	ze/results_13
+TWMET_00047	UNK	0.6	0.4	NEG	methanol	ze/results_13
+TWMET_00183	UNK	0.61	0.39	NEG	phosphoinositide	ze/results_13
+TWMET_01173	UNK	0.62	0.38	NEG	spermidine	ze/results_13
+TWMET_00485	UNK	0.63	0.37	NEG	myo-inositol	ze/results_13
+TWMET_00041	UNK	0.63	0.37	NEG	serine	ze/results_13
+TWMET_00090	UNK	0.64	0.36	NEG	threonine	ze/results_13
+TWMET_00057	UNK	0.65	0.35	NEG	phosphatidylinositol	ze/results_13
+TWMET_00197	UNK	0.65	0.35	NEG	vincristine	ze/results_13
+TWMET_00333	UNK	0.65	0.35	NEG	acetaldehyde	ze/results_13
+TWMET_00941	UNK	0.66	0.34	NEG	genistein	ze/results_13
+TWMET_00044	UNK	0.66	0.34	NEG	cysteine	ze/results_13
+TWMET_00068	UNK	0.67	0.33	NEG	methionine	ze/results_13
+TWMET_01043	UNK	0.67	0.33	NEG	methionine sulfoximine	ze/results_13
+TWMET_00195	UNK	0.67	0.33	NEG	tocopherol	ze/results_13
+TWMET_00103	UNK	0.68	0.32	NEG	indomethacin	ze/results_13
+TWMET_00104	UNK	0.68	0.32	NEG	alanine	ze/results_13
+TWMET_00034	UNK	0.68	0.32	NEG	aspartate	ze/results_13
+TWMET_01025	UNK	0.68	0.32	NEG	levothyroxine	ze/results_13
+TWMET_00039	UNK	0.68	0.32	NEG	AMP	ze/results_13
+TWMET_00026	UNK	0.68	0.32	NEG	progesterone	ze/results_13
+TWMET_00035	UNK	0.69	0.31	NEG	adenosine	ze/results_13
+TWMET_01051	NEG	0.69	0.31	NEG	methylglyoxal	ze/results_13
+TWMET_00148	NEG	0.69	0.31	NEG	thyroxine	ze/results_13
+TWMET_00008	UNK	0.7	0.3	NEG	estrogen	ze/results_13
+TWMET_00084	UNK	0.7	0.3	NEG	creatine	ze/results_13
+TWMET_00074	UNK	0.7	0.3	NEG	penicillin	ze/results_13
+TWMET_00467	UNK	0.7	0.3	NEG	malate	ze/results_13
+TWMET_00353	UNK	0.71	0.29	NEG	amylopectin	ze/results_13
+TWMET_00497	UNK	0.71	0.29	NEG	palmitic acid	ze/results_13
+TWMET_00194	UNK	0.72	0.28	NEG	succinate	ze/results_13
+TWMET_00564	UNK	0.72	0.28	NEG	valine	ze/results_13
+TWMET_00019	UNK	0.72	0.28	NEG	estradiol	ze/results_13
+TWMET_00040	NEG	0.72	0.28	NEG	arginine	ze/results_13
+TWMET_00145	NEG	0.72	0.28	NEG	prednisone	ze/results_13
+TWMET_00126	NEG	0.72	0.28	NEG	palmitate	ze/results_13
+TWMET_00382	UNK	0.73	0.27	NEG	cytochrome	ze/results_13
+TWMET_00018	UNK	0.73	0.27	NEG	prostaglandin	ze/results_13
+TWMET_00065	UNK	0.74	0.26	NEG	ammonia	ze/results_13
+TWMET_00182	NEG	0.74	0.26	NEG	phenylephrine	ze/results_13
+TWMET_00069	UNK	0.74	0.26	NEG	vitamin C	ze/results_13
+TWMET_00228	UNK	0.75	0.25	NEG	beta-alanine	ze/results_13
+TWMET_00071	NEG	0.75	0.25	NEG	cyclophosphamide	ze/results_13
+TWMET_00204	UNK	0.75	0.25	NEG	doxorubicin	ze/results_13
+TWMET_00225	UNK	0.75	0.25	NEG	ascorbate	ze/results_13
+TWMET_00478	UNK	0.76	0.24	NEG	methylenetetrahydrofolate	ze/results_13
+TWMET_00263	UNK	0.76	0.24	NEG	vitamin B2	ze/results_13
+TWMET_01004	UNK	0.76	0.24	NEG	inosine	ze/results_13
+TWMET_00124	UNK	0.76	0.24	NEG	neuropeptide	ze/results_13
+TWMET_00149	UNK	0.77	0.23	NEG	vancomycin	ze/results_13
+TWMET_01175	UNK	0.77	0.23	NEG	spironolactone	ze/results_13
+TWMET_01235	UNK	0.77	0.23	NEG	isoleucine	ze/results_13
+TWMET_00492	UNK	0.77	0.23	NEG	oxaloacetate	ze/results_13
+TWMET_00354	UNK	0.77	0.23	NEG	amylose	ze/results_13
+TWMET_00167	UNK	0.78	0.22	NEG	homocysteine	ze/results_13
+TWMET_00049	UNK	0.78	0.22	NEG	leucine	ze/results_13
+TWMET_01233	UNK	0.78	0.22	NEG	sodium dodecyl sulfate	ze/results_13
+TWMET_00233	UNK	0.78	0.22	NEG	diacylglycerol	ze/results_13
+TWMET_00246	UNK	0.78	0.22	NEG	lactulose	ze/results_13
+TWMET_00441	NEG	0.79	0.21	NEG	hemoglobin	ze/results_13
+TWMET_00410	UNK	0.79	0.21	NEG	globin	ze/results_13
+TWMET_00010	UNK	0.8	0.2	NEG	glutathione	ze/results_13
+TWMET_00107	NEG	0.8	0.2	NEG	bilirubin	ze/results_13
+TWMET_00176	UNK	0.8	0.2	NEG	n-acetylcysteine	ze/results_13
+TWMET_00030	NEG	0.81	0.19	NEG	heparin	ze/results_13
+TWMET_00507	UNK	0.81	0.19	NEG	phosphorylase	ze/results_13
+TWMET_00844	UNK	0.81	0.19	NEG	carotene	ze/results_13
+TWMET_00206	UNK	0.81	0.19	NEG	ethyl acetate	ze/results_13
+TWMET_00013	UNK	0.81	0.19	NEG	CO2	ze/results_13
+TWMET_00164	UNK	0.81	0.19	NEG	glycosaminoglycan	ze/results_13
+TWMET_00105	NEG	0.82	0.18	NEG	glutamine	ze/results_13
+TWMET_00799	UNK	0.82	0.18	NEG	allopurinol	ze/results_13
+TWMET_00191	UNK	0.82	0.18	NEG	retinoid	ze/results_13
+TWMET_00015	UNK	0.82	0.18	NEG	lactate	ze/results_13
+TWMET_00140	NEG	0.82	0.18	NEG	erythropoietin	ze/results_13
+TWMET_01153	NEG	0.82	0.18	NEG	retinol	ze/results_13
+TWMET_00023	UNK	0.82	0.18	NEG	malondialdehyde	ze/results_13
+TWMET_00056	NEG	0.83	0.17	NEG	vitamin D	ze/results_13
+TWMET_00376	UNK	0.83	0.17	NEG	citrulline	ze/results_13
+TWMET_00369	UNK	0.83	0.17	NEG	cellulose	ze/results_13
+TWMET_00115	NEG	0.83	0.17	NEG	methicillin	ze/results_13
+TWMET_00383	UNK	0.83	0.17	NEG	dehydroascorbate	ze/results_13
+TWMET_00046	UNK	0.84	0.16	NEG	H2O2	ze/results_13
+TWMET_00910	UNK	0.84	0.16	NEG	ergosterol	ze/results_13
+TWMET_00154	NEG	0.84	0.16	NEG	amphotericin-b	ze/results_13
+TWMET_00007	UNK	0.84	0.16	NEG	retinal	ze/results_13
+TWMET_00175	UNK	0.84	0.16	NEG	myristate	ze/results_13
+TWMET_00185	NEG	0.84	0.16	NEG	prednisolone	ze/results_13
+TWMET_00171	NEG	0.84	0.16	NEG	mannitol	ze/results_13
+TWMET_00031	NEG	0.84	0.16	NEG	aspirin	ze/results_13
+TWMET_00917	NEG	0.84	0.16	NEG	ethanol	ze/results_13
+TWMET_00720	UNK	0.84	0.16	NEG	3-methyladenine	ze/results_13
+TWMET_00077	UNK	0.84	0.16	NEG	folate	ze/results_13
+TWMET_00086	NEG	0.85	0.15	NEG	pyruvate	ze/results_13
+TWMET_00802	UNK	0.85	0.15	NEG	amiloride	ze/results_13
+TWMET_00051	NEG	0.85	0.15	NEG	nitrate	ze/results_13
+TWMET_00275	UNK	0.85	0.15	NEG	xanthine	ze/results_13
+TWMET_00785	NEG	0.86	0.14	NEG	acarbose	ze/results_13
+TWMET_01201	NEG	0.86	0.14	NEG	thiamine	ze/results_13
+TWMET_00268	UNK	0.86	0.14	NEG	trehalose	ze/results_13
+TWMET_00178	UNK	0.86	0.14	NEG	vitamin B3	ze/results_13
+TWMET_00100	NEG	0.86	0.14	NEG	phenylalanine	ze/results_13
+TWMET_00016	NEG	0.86	0.14	NEG	corticosteroid	ze/results_13
+TWMET_00021	NEG	0.86	0.14	NEG	arachidonic acid	ze/results_13
+TWMET_00272	NEG	0.86	0.14	NEG	vitamin B12	ze/results_13
+TWMET_01214	UNK	0.86	0.14	NEG	triethyl citrate	ze/results_13
+TWMET_00004	UNK	0.87	0.13	NEG	fatty acid	ze/results_13
+TWMET_00897	UNK	0.87	0.13	NEG	diltiazem	ze/results_13
+TWMET_00547	UNK	0.87	0.13	NEG	thiamine pyrophosphate	ze/results_13
+TWMET_00060	UNK	0.87	0.13	NEG	vitamin D3	ze/results_13
+TWMET_00231	UNK	0.87	0.13	NEG	dihydroxyacetone	ze/results_13
+TWMET_00867	UNK	0.87	0.13	NEG	corticosterone	ze/results_13
+TWMET_00368	NEG	0.88	0.12	NEG	carnitine	ze/results_13
+TWMET_00465	UNK	0.88	0.12	NEG	lipoamide	ze/results_13
+TWMET_00001	UNK	0.88	0.12	NEG	glucose	ze/results_13
+TWMET_00078	UNK	0.88	0.12	NEG	NADPH	ze/results_13
+TWMET_00116	NEG	0.88	0.12	NEG	rapamycin	ze/results_13
+TWMET_00179	NEG	0.88	0.12	NEG	nifedipine	ze/results_13
+TWMET_00043	NEG	0.89	0.11	NEG	lysine	ze/results_13
+TWMET_00092	NEG	0.89	0.11	NEG	EDTA	ze/results_13
+TWMET_00276	UNK	0.89	0.11	NEG	xylitol	ze/results_13
+TWMET_00076	UNK	0.89	0.11	NEG	NAD	ze/results_13
+TWMET_00856	UNK	0.9	0.1	NEG	cholic acid	ze/results_13
+TWMET_00002	UNK	0.9	0.1	NEG	lipid	ze/results_13
+TWMET_00202	NEG	0.9	0.1	NEG	citrate	ze/results_13
+TWMET_00009	NEG	0.9	0.1	NEG	acetate	ze/results_13
+TWMET_00218	NEG	0.9	0.1	NEG	sorbitol	ze/results_13
+TWMET_00128	NEG	0.9	0.1	NEG	fructose	ze/results_13
+TWMET_00935	UNK	0.9	0.1	NEG	fructose 1,6-bisphosphate	ze/results_13
+TWMET_00254	UNK	0.9	0.1	NEG	NADP	ze/results_13
+TWMET_00080	NEG	0.91	0.09	NEG	nitrite	ze/results_13
+TWMET_00249	UNK	0.91	0.09	NEG	long-chain-fatty-acid	ze/results_13
+TWMET_00066	NEG	0.92	0.08	NEG	glycerol	ze/results_13
+TWMET_00386	UNK	0.92	0.08	NEG	DHA	ze/results_13
+TWMET_00113	NEG	0.92	0.08	NEG	aldosterone	ze/results_13
+TWMET_00850	UNK	0.92	0.08	NEG	chenodeoxycholic acid	ze/results_13
+TWMET_00063	NEG	0.93	0.07	NEG	ACTH	ze/results_13
+TWMET_00005	NEG	0.93	0.07	NEG	steroid	ze/results_13
+TWMET_00022	NEG	0.93	0.07	NEG	glucocorticoid	ze/results_13
+TWMET_00064	NEG	0.93	0.07	NEG	vasopressin	ze/results_13
+TWMET_00988	NEG	0.93	0.07	NEG	hydrochlorothiazide	ze/results_13
+TWMET_00079	NEG	0.94	0.06	NEG	adenine	ze/results_13
+TWMET_00073	NEG	0.94	0.06	NEG	glycogen	ze/results_13
+TWMET_00132	NEG	0.94	0.06	NEG	bile-acid	ze/results_13
+TWMET_01030	UNK	0.94	0.06	NEG	linolenic acid	ze/results_13
+TWMET_00127	NEG	0.94	0.06	NEG	bicarbonate	ze/results_13
+TWMET_00144	NEG	0.95	0.05	NEG	polyunsaturated-fatty-acid	ze/results_13
+TWMET_01031	NEG	0.95	0.05	NEG	lipoic acid	ze/results_13
+TWMET_00087	NEG	0.95	0.05	NEG	linoleic acid	ze/results_13
+TWMET_00050	NEG	0.95	0.05	NEG	sucrose	ze/results_13
+TWMET_00130	NEG	0.95	0.05	NEG	streptozotocin	ze/results_13
+TWMET_00870	NEG	0.95	0.05	NEG	creatinine	ze/results_13
+TWMET_00024	NEG	0.95	0.05	NEG	urea	ze/results_13
+TWMET_00121	NEG	0.95	0.05	NEG	uric acid	ze/results_13
+TWMET_00411	NEG	0.96	0.04	NEG	glucagon	ze/results_13
+TWMET_00098	NEG	0.96	0.04	NEG	starch	ze/results_13
+TWMET_00550	NEG	0.97	0.03	NEG	triacylglycerol	ze/results_13
+TWMET_00028	NEG	0.98	0.02	NEG	testosterone	ze/results_13
+TWMET_00174	NEG	0.98	0.02	NEG	metformin	ze/results_13
+TWMET_00011	NEG	0.98	0.02	NEG	triglyceride	ze/results_13
+TWMET_00032	NEG	0.99	0.01	NEG	cortisol	ze/results_13
+TWMET_00033	NEG	0.99	0.01	NEG	androgen	ze/results_13
+TWMET_00095	NEG	0.99	0.01	NEG	lipoprotein-cholesterol	ze/results_13
+TWMET_00003	NEG	1.0	0.0	NEG	cholesterol	ze/results_13

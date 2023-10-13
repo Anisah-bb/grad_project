@@ -1,0 +1,159 @@
+	subject	object	score	overlap	local_mi	subject_annotated	object_annotated
+0	TWDIS_09536	TWMET_00001	11	60188	662068	diabetes mellitus	glucose
+1	TWDIS_09536	TWMET_00130	25	8390	209750	diabetes mellitus	streptozotocin
+2	TWDIS_09536	TWMET_00174	26	6695	174070	diabetes mellitus	metformin
+3	TWDIS_09536	TWMET_00441	10	14162	141620	diabetes mellitus	hemoglobin
+4	TWDIS_09536	TWMET_00003	6	15354	92124	diabetes mellitus	cholesterol
+5	TWDIS_09536	TWMET_00011	8	11391	91128	diabetes mellitus	triglyceride
+6	TWDIS_09536	TWMET_00411	13	5292	68796	diabetes mellitus	glucagon
+7	TWDIS_09536	TWMET_00002	3	17867	53601	diabetes mellitus	lipid
+8	TWDIS_09536	TWMET_00870	6	7072	42432	diabetes mellitus	creatinine
+9	TWDIS_09536	TWMET_00785	23	759	17457	diabetes mellitus	acarbose
+10	TWDIS_09536	TWMET_00004	2	4541	9082	diabetes mellitus	fatty acid
+11	TWDIS_09536	TWMET_00121	5	1764	8820	diabetes mellitus	uric acid
+12	TWDIS_09536	TWMET_00095	11	584	6424	diabetes mellitus	lipoprotein-cholesterol
+13	TWDIS_09536	TWMET_00056	3	2114	6342	diabetes mellitus	vitamin D
+14	TWDIS_09536	TWMET_00007	2	3033	6066	diabetes mellitus	retinal
+15	TWDIS_09536	TWMET_00031	3	1566	4698	diabetes mellitus	aspirin
+16	TWDIS_09536	TWMET_00023	3	1428	4284	diabetes mellitus	malondialdehyde
+17	TWDIS_09536	TWMET_00073	3	1389	4167	diabetes mellitus	glycogen
+18	TWDIS_09536	TWMET_00024	2	1693	3386	diabetes mellitus	urea
+19	TWDIS_09536	TWMET_00167	4	827	3308	diabetes mellitus	homocysteine
+20	TWDIS_09536	TWMET_00104	2	1585	3170	diabetes mellitus	alanine
+21	TWDIS_09536	TWMET_00113	3	966	2898	diabetes mellitus	aldosterone
+22	TWDIS_09536	TWMET_00005	1	2391	2391	diabetes mellitus	steroid
+23	TWDIS_09536	TWMET_00178	3	753	2259	diabetes mellitus	vitamin B3
+24	TWDIS_09536	TWMET_00081	2	1036	2072	diabetes mellitus	inositol
+25	TWDIS_09536	TWMET_00010	1	1917	1917	diabetes mellitus	glutathione
+26	TWDIS_09536	TWMET_01051	6	268	1608	diabetes mellitus	methylglyoxal
+27	TWDIS_09536	TWMET_00116	2	785	1570	diabetes mellitus	rapamycin
+28	TWDIS_09536	TWMET_00016	1	1497	1497	diabetes mellitus	corticosteroid
+29	TWDIS_09536	TWMET_00037	1	1469	1469	diabetes mellitus	glutamate
+30	TWDIS_09536	TWMET_00128	2	608	1216	diabetes mellitus	fructose
+31	TWDIS_09536	TWMET_00015	1	1214	1214	diabetes mellitus	lactate
+32	TWDIS_09536	TWMET_00006	1	1153	1153	diabetes mellitus	tyrosine
+33	TWDIS_09536	TWMET_00126	2	567	1134	diabetes mellitus	palmitate
+34	TWDIS_09536	TWMET_00034	1	1118	1118	diabetes mellitus	aspartate
+35	TWDIS_09536	TWMET_00040	1	1115	1115	diabetes mellitus	arginine
+36	TWDIS_09536	TWMET_00028	1	1098	1098	diabetes mellitus	testosterone
+37	TWDIS_09536	TWMET_00032	1	1064	1064	diabetes mellitus	cortisol
+38	TWDIS_09536	TWMET_00144	2	516	1032	diabetes mellitus	polyunsaturated-fatty-acid
+39	TWDIS_09536	TWMET_00035	1	1022	1022	diabetes mellitus	adenosine
+40	TWDIS_09536	TWMET_00039	1	1000	1000	diabetes mellitus	AMP
+41	TWDIS_09536	TWMET_00022	1	946	946	diabetes mellitus	glucocorticoid
+42	TWDIS_09536	TWMET_00154	2	464	928	diabetes mellitus	amphotericin-b
+43	TWDIS_09536	TWMET_00988	4	227	908	diabetes mellitus	hydrochlorothiazide
+44	TWDIS_09536	TWMET_01031	4	224	896	diabetes mellitus	lipoic acid
+45	TWDIS_09536	TWMET_00008	1	861	861	diabetes mellitus	estrogen
+46	TWDIS_09536	TWMET_00550	2	409	818	diabetes mellitus	triacylglycerol
+47	TWDIS_09536	TWMET_00088	1	766	766	diabetes mellitus	flavonoid
+48	TWDIS_09536	TWMET_00272	2	357	714	diabetes mellitus	vitamin B12
+49	TWDIS_09536	TWMET_00020	1	656	656	diabetes mellitus	norepinephrine
+50	TWDIS_09536	TWMET_00018	1	653	653	diabetes mellitus	prostaglandin
+51	TWDIS_09536	TWMET_00017	1	648	648	diabetes mellitus	phospholipid
+52	TWDIS_09536	TWMET_01153	2	317	634	diabetes mellitus	retinol
+53	TWDIS_09536	TWMET_01151	2	310	620	diabetes mellitus	resveratrol
+54	TWDIS_09536	TWMET_00424	2	303	606	diabetes mellitus	glutamyl
+55	TWDIS_09536	TWMET_00057	1	593	593	diabetes mellitus	phosphatidylinositol
+56	TWDIS_09536	TWMET_00027	1	592	592	diabetes mellitus	acetylcholine
+57	TWDIS_09536	TWMET_00033	1	589	589	diabetes mellitus	androgen
+58	TWDIS_09536	TWMET_00069	1	570	570	diabetes mellitus	vitamin C
+59	TWDIS_09536	TWMET_00824	3	188	564	diabetes mellitus	berberine
+60	TWDIS_09536	TWMET_00368	2	275	550	diabetes mellitus	carnitine
+61	TWDIS_09536	TWMET_00030	1	541	541	diabetes mellitus	heparin
+62	TWDIS_09536	TWMET_00077	1	527	527	diabetes mellitus	folate
+63	TWDIS_09536	TWMET_00060	2	262	524	diabetes mellitus	vitamin D3
+64	TWDIS_09536	TWMET_00068	1	521	521	diabetes mellitus	methionine
+65	TWDIS_09536	TWMET_00107	1	514	514	diabetes mellitus	bilirubin
+66	TWDIS_09536	TWMET_00184	1	505	505	diabetes mellitus	polyphenol
+67	TWDIS_09536	TWMET_00084	1	501	501	diabetes mellitus	creatine
+68	TWDIS_09536	TWMET_00025	1	501	501	diabetes mellitus	polysaccharide
+69	TWDIS_09536	TWMET_00050	1	494	494	diabetes mellitus	sucrose
+70	TWDIS_09536	TWMET_00063	1	492	492	diabetes mellitus	ACTH
+71	TWDIS_09536	TWMET_00132	1	488	488	diabetes mellitus	bile-acid
+72	TWDIS_09536	TWMET_00497	2	242	484	diabetes mellitus	palmitic acid
+73	TWDIS_09536	TWMET_00202	1	481	481	diabetes mellitus	citrate
+74	TWDIS_09536	TWMET_00021	1	471	471	diabetes mellitus	arachidonic acid
+75	TWDIS_09536	TWMET_00218	2	226	452	diabetes mellitus	sorbitol
+76	TWDIS_09536	TWMET_00043	1	451	451	diabetes mellitus	lysine
+77	TWDIS_09536	TWMET_00080	1	438	438	diabetes mellitus	nitrite
+78	TWDIS_09536	TWMET_00061	1	437	437	diabetes mellitus	catecholamine
+79	TWDIS_09536	TWMET_00086	1	424	424	diabetes mellitus	pyruvate
+80	TWDIS_09536	TWMET_00127	1	410	410	diabetes mellitus	bicarbonate
+81	TWDIS_09536	TWMET_00078	1	392	392	diabetes mellitus	NADPH
+82	TWDIS_09536	TWMET_00076	1	390	390	diabetes mellitus	NAD
+83	TWDIS_09536	TWMET_00145	1	387	387	diabetes mellitus	prednisone
+84	TWDIS_09536	TWMET_00148	1	384	384	diabetes mellitus	thyroxine
+85	TWDIS_09536	TWMET_01201	2	185	370	diabetes mellitus	thiamine
+86	TWDIS_09536	TWMET_00185	1	369	369	diabetes mellitus	prednisolone
+87	TWDIS_09536	TWMET_00504	2	178	356	diabetes mellitus	phosphoenolpyruvate
+88	TWDIS_09536	TWMET_00049	1	354	354	diabetes mellitus	leucine
+89	TWDIS_09536	TWMET_00066	1	335	335	diabetes mellitus	glycerol
+90	TWDIS_09536	TWMET_00217	1	320	320	diabetes mellitus	quercetin
+91	TWDIS_09536	TWMET_00344	2	157	314	diabetes mellitus	adenylylsulfate
+92	TWDIS_09536	TWMET_00115	1	309	309	diabetes mellitus	methicillin
+93	TWDIS_09536	TWMET_00485	2	146	292	diabetes mellitus	myo-inositol
+94	TWDIS_09536	TWMET_00098	1	282	282	diabetes mellitus	starch
+95	TWDIS_09536	TWMET_00264	2	139	278	diabetes mellitus	short-chain-fatty-acid
+96	TWDIS_09536	TWMET_00173	1	273	273	diabetes mellitus	melatonin
+97	TWDIS_09536	TWMET_00478	2	133	266	diabetes mellitus	methylenetetrahydrofolate
+98	TWDIS_09536	TWMET_00079	1	261	261	diabetes mellitus	adenine
+99	TWDIS_09536	TWMET_00140	1	261	261	diabetes mellitus	erythropoietin
+100	TWDIS_09536	TWMET_00064	1	257	257	diabetes mellitus	vasopressin
+101	TWDIS_09536	TWMET_00872	1	250	250	diabetes mellitus	curcumin
+102	TWDIS_09536	TWMET_00124	1	245	245	diabetes mellitus	neuropeptide
+103	TWDIS_09536	TWMET_00195	1	240	240	diabetes mellitus	tocopherol
+104	TWDIS_09536	TWMET_00149	1	235	235	diabetes mellitus	vancomycin
+105	TWDIS_09536	TWMET_01175	2	116	232	diabetes mellitus	spironolactone
+106	TWDIS_09536	TWMET_00105	1	218	218	diabetes mellitus	glutamine
+107	TWDIS_09536	TWMET_00087	1	209	209	diabetes mellitus	linoleic acid
+108	TWDIS_09536	TWMET_01025	2	104	208	diabetes mellitus	levothyroxine
+109	TWDIS_09536	TWMET_00100	1	205	205	diabetes mellitus	phenylalanine
+110	TWDIS_09536	TWMET_00183	1	202	202	diabetes mellitus	phosphoinositide
+111	TWDIS_09536	TWMET_00093	1	201	201	diabetes mellitus	choline
+112	TWDIS_09536	TWMET_00131	1	199	199	diabetes mellitus	glycoside
+113	TWDIS_09536	TWMET_00221	1	197	197	diabetes mellitus	vitamin K
+114	TWDIS_09536	TWMET_00386	1	189	189	diabetes mellitus	DHA
+115	TWDIS_09536	TWMET_00182	1	186	186	diabetes mellitus	phenylephrine
+116	TWDIS_09536	TWMET_00564	1	177	177	diabetes mellitus	valine
+117	TWDIS_09536	TWMET_00201	1	177	177	diabetes mellitus	butyrate
+118	TWDIS_09536	TWMET_00181	1	176	176	diabetes mellitus	oleate
+119	TWDIS_09536	TWMET_00157	1	168	168	diabetes mellitus	ciprofloxacin
+120	TWDIS_09536	TWMET_00230	1	168	168	diabetes mellitus	ceramide
+121	TWDIS_09536	TWMET_00192	1	166	166	diabetes mellitus	rifampicin
+122	TWDIS_09536	TWMET_00176	1	162	162	diabetes mellitus	n-acetylcysteine
+123	TWDIS_09536	TWMET_00134	1	158	158	diabetes mellitus	caffeine
+124	TWDIS_09536	TWMET_00147	1	156	156	diabetes mellitus	ribose
+125	TWDIS_09536	TWMET_00275	1	154	154	diabetes mellitus	xanthine
+126	TWDIS_09536	TWMET_00179	1	154	154	diabetes mellitus	nifedipine
+127	TWDIS_09536	TWMET_00171	1	152	152	diabetes mellitus	mannitol
+128	TWDIS_09536	TWMET_00194	1	149	149	diabetes mellitus	succinate
+129	TWDIS_09536	TWMET_00206	1	148	148	diabetes mellitus	ethyl acetate
+130	TWDIS_09536	TWMET_00544	1	148	148	diabetes mellitus	taurine
+131	TWDIS_09536	TWMET_00151	1	146	146	diabetes mellitus	acetone
+132	TWDIS_09536	TWMET_00165	1	145	145	diabetes mellitus	guanosine
+133	TWDIS_09536	TWMET_00844	1	143	143	diabetes mellitus	carotene
+134	TWDIS_09536	TWMET_01030	1	139	139	diabetes mellitus	linolenic acid
+135	TWDIS_09536	TWMET_00233	1	139	139	diabetes mellitus	diacylglycerol
+136	TWDIS_09536	TWMET_00447	1	137	137	diabetes mellitus	hydroperoxide
+137	TWDIS_09536	TWMET_00163	1	136	136	diabetes mellitus	gentamicin
+138	TWDIS_09536	TWMET_00164	1	134	134	diabetes mellitus	glycosaminoglycan
+139	TWDIS_09536	TWMET_00893	1	133	133	diabetes mellitus	digoxin
+140	TWDIS_09536	TWMET_00533	1	129	129	diabetes mellitus	sphingolipid
+141	TWDIS_09536	TWMET_00243	1	127	127	diabetes mellitus	inulin
+142	TWDIS_09536	TWMET_00451	1	127	127	diabetes mellitus	inulin
+143	TWDIS_09536	TWMET_00193	1	126	126	diabetes mellitus	sialic acid
+144	TWDIS_09536	TWMET_00265	1	123	123	diabetes mellitus	stearic acid
+145	TWDIS_09536	TWMET_00254	1	123	123	diabetes mellitus	NADP
+146	TWDIS_09536	TWMET_00153	1	122	122	diabetes mellitus	amoxicillin
+147	TWDIS_09536	TWMET_00269	1	121	121	diabetes mellitus	trimethoprim
+148	TWDIS_09536	TWMET_01235	1	120	120	diabetes mellitus	isoleucine
+149	TWDIS_09536	TWMET_00152	1	119	119	diabetes mellitus	aminoglycoside
+150	TWDIS_09536	TWMET_00905	1	117	117	diabetes mellitus	doxycycline
+151	TWDIS_09536	TWMET_00847	1	113	113	diabetes mellitus	catechin
+152	TWDIS_09536	TWMET_00245	1	113	113	diabetes mellitus	isoniazid
+153	TWDIS_09536	TWMET_00940	1	112	112	diabetes mellitus	gallic acid
+154	TWDIS_09536	TWMET_00868	1	111	111	diabetes mellitus	cortisone
+155	TWDIS_09536	TWMET_00534	1	104	104	diabetes mellitus	sphingomyelin
+156	TWDIS_09536	TWMET_00536	1	102	102	diabetes mellitus	sphingosine
+157	TWDIS_09536	TWMET_00253	1	101	101	diabetes mellitus	metronidazole

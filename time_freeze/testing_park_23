@@ -1,0 +1,24 @@
+	subject	object	score	overlap	local_mi	subject_annotated	object_annotated
+0	TWDIS_06685	TWMET_00170	108	12231	1320948	parkinson's disease	dopa
+1	TWDIS_06685	TWMET_00012	30	18952	568560	parkinson's disease	dopamine
+2	TWDIS_06685	TWMET_01157	59	1555	91745	parkinson's disease	rotenone
+3	TWDIS_06685	TWMET_00006	5	4681	23405	parkinson's disease	tyrosine
+4	TWDIS_06685	TWMET_00848	13	945	12285	parkinson's disease	catechol
+5	TWDIS_06685	TWMET_00049	5	1483	7415	parkinson's disease	leucine
+6	TWDIS_06685	TWMET_00574	18	236	4248	parkinson's disease	3,4-dihydroxyphenylacetic acid
+7	TWDIS_06685	TWMET_00166	5	406	2030	parkinson's disease	haloperidol
+8	TWDIS_06685	TWMET_00821	33	18	594	parkinson's disease	benzhexol
+9	TWDIS_06685	TWMET_00985	26	16	416	parkinson's disease	homovanilic acid
+10	TWDIS_06685	TWMET_00618	6	67	402	parkinson's disease	2,3-pyridinecarboxylic acid
+11	TWDIS_06685	TWMET_00619	6	67	402	parkinson's disease	2,3-pyridinedicarboxylic acid
+12	TWDIS_06685	TWMET_00717	11	32	352	parkinson's disease	3-methoxytyramine
+13	TWDIS_06685	TWMET_00575	8	30	240	parkinson's disease	3-hydroxykynurenine
+14	TWDIS_06685	TWMET_01230	6	20	120	parkinson's disease	sodium lauroyl sarcosinate
+15	TWDIS_06685	TWMET_00742	14	4	56	parkinson's disease	4-hydroxy-3-methoxyphenylacetic acid
+16	TWDIS_06685	TWMET_00607	7	7	49	parkinson's disease	1-methylnicotinamide
+17	TWDIS_06685	TWMET_00727	16	3	48	parkinson's disease	3-nitro-tyrosine
+18	TWDIS_06685	TWMET_00716	11	4	44	parkinson's disease	3-methoxyphenylacetic acid
+19	TWDIS_06685	TWMET_01066	19	2	38	parkinson's disease	n-acetyl-aspartic acid
+20	TWDIS_06685	TWMET_00781	5	4	20	parkinson's disease	7-methylxanthine
+21	TWDIS_06685	TWMET_00752	9	2	18	parkinson's disease	4-methyl-2-oxovaleric acid
+22	TWDIS_06685	TWMET_00956	5	2	10	parkinson's disease	glycoursodeoxycholic acid

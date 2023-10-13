@@ -1,6 +1,6 @@
 '''
 This scripts performs classification and makes predictions
-usage- python run_model.py -s 'second_layer' -m 'model_data_path' -e 'embedding.emb' -a adaboost -o out_file
+usage- python run_mod.py -s 'second_layer' -m 'model_data_path' -e 'embedding.emb' -a adaboost -o out_file
 '''
 
 # import libraries
@@ -16,7 +16,7 @@ import pandas as pd
 import networkx as nx
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import AdaBoostClassifier
-import config
+import conf
 
 
 class TrainModel():
@@ -43,10 +43,11 @@ class TrainModel():
         """
         self.apikey = apikey
         self.session = requests.Session()
-        self.base_url = 'https://apimlqv2.tenwiseservice.nl/api/mlquery/'
-        self.session.headers['referer'] = 'https://apimlqv2.tenwiseservice.nl/'
+        self.base_url = 'http://www.tenwisedev.nl:6001/mlquery/'
+        self.session.headers['referer'] = 'https://apimlq.tenwiseservice.nl/'
+        self.mydict  = 'tagger_results_tf_2013'
         self.session.get(f"{self.base_url}start/")
-        self.payload = {'apikey': self.apikey,  # contact KMAP for API
+        self.mydict = {'apikey': self.apikey,  # contact KMAP for API
             'csrfmiddlewaretoken': self.session.cookies.get_dict()['csrftoken']}
         self.second_layer = second_layer
         self.embedding_file = embedding_file
@@ -140,14 +141,8 @@ class TrainModel():
         :rtype: scikit learn model
         """
         #train model
-        param_grid = {'min_samples_leaf':[3,5,7,10,15],'max_features':[0.5,'sqrt','log2'],
-          'max_depth':[10,15,20],
-          'class_weight':[{"POS":3,"NEG":1},{"POS":1,"NEG":1}],
-          'criterion':['entropy','gini']}
-        model1 = GridSearchCV(RandomForestClassifier(),
-                              param_grid, verbose=1,n_jobs=-1,scoring='roc_auc')
+        model1 = RandomForestClassifier(random_state=42)
         model1.fit(self.train_features,self.train_target)
-        # print ('\n',model1.best_estimator_)
         pred1 = model1.predict(self.test_features)
         print(classification_report(self.test_target, pred1))
         print("RF Accuracy:",metrics.accuracy_score(self.test_target, pred1))
@@ -155,8 +150,11 @@ class TrainModel():
         clsf_report = pd.DataFrame(classification_report(self.test_target, pred1, output_dict=True)).transpose()
         report_path = self.prediction_path.strip('_predictions.txt') + '_report.txt'
         clsf_report.to_csv(report_path , sep='\t', index= True)
+        
+        roc = metrics.plot_roc_curve(model1, self.test_features, self.test_target)
+        roc.figure_.savefig(self.prediction_path.strip('_predictions.txt') + '_roc')
 
-        # print(type(model1))
+        
         return model1
     def do_adaboost(self):
         """function to train an AdaBoost classifier model
@@ -177,6 +175,7 @@ class TrainModel():
         clsf_report = pd.DataFrame(classification_report( self.test_target, pred2, output_dict=True)).transpose()
         report_path = self.prediction_path.strip('_predictions.txt') + '_report.txt'
         clsf_report.to_csv(report_path , sep='\t', index= True)
+        
         return model2
 
     def make_predictions(self):
@@ -204,8 +203,8 @@ class TrainModel():
         
         # annotate predictions
         ids = list(predictions_df.index)
-        self.payload['concept_ids'] = ",".join(ids)
-        results = self.session.post(f"{self.base_url}conceptset/annotation/", self.payload)
+        self.mydict['concept_ids'] = ",".join(ids)
+        results = self.session.post(f"{self.base_url}conceptset/annotation/", self.mydict)
         results = results.json()
         annotation = results['result']['annotation']
         
@@ -243,7 +242,7 @@ def main():
     argparser.add_argument("--OUT_FILE", "-o",action="store",  type = str,
                             help="Path to save results")
     parsed = argparser.parse_args()
-    api_key = config.API_KEY
+    api_key = conf.API_KEY
     second_layer_path = parsed.SECOND_LAYER
     model_data_path = parsed.MODEL_DATA
     embedding = parsed.EMBEDDINGS
